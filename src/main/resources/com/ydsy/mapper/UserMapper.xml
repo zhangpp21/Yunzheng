@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ydsy.mapper.UserMapper">
+    <resultMap id="usersResultMap" type="User">
+        <result column="job_id" property = "jobId"/>
+        <result column="personal_signature" property = "personalSignature"/>
+        <result column="student_id" property = "studentId"/>
+        <result column="major_class" property = "majorClass"/>
+        <result column="direction_id" property = "directionId"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="usersResultMap">
+        select  * from users;
+
+    </select>
+</mapper>
