@@ -9,9 +9,11 @@
         <result column="user_id" property = "userId"/>
         <result column="meeting_content" property = "meetingContent"/>
     </resultMap>
+    <insert id="insertMeeting"></insert>
 
     <select id="selectAll" resultMap="meetingsResultMap">
         select  * from meetings;
 
     </select>
+    <select id="getMeetingById" resultType="com.ydsy.pojo.Meeting"></select>
 </mapper>
