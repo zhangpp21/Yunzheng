@@ -4,13 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ydsy.mapper.AnnouncementMapper">
     <resultMap id="announcementsResultMap" type="Announcement">
-        <result column="announcement_id" property = "announcementId"/>
-        <result column="announcement_content" property = "announcementContent"/>
-        <result column=" created_at" property = "createdAt"/>
+        <result column="announcement_id" property="announcementId"/>
+        <result column="announcement_content" property="announcementContent"/>
+        <result column=" created_at" property="createdAt"/>
     </resultMap>
 
     <select id="selectAll" resultMap="announcementsResultMap">
-        select  * from announcements;
+        select *
+        from announcements;
 
     </select>
 </mapper>

@@ -19,6 +19,6 @@
         </environment>
     </environments>
     <mappers>
-       <package name="com.ydsy.mapper"/>
+        <package name="com.ydsy.mapper"/>
     </mappers>
 </configuration>

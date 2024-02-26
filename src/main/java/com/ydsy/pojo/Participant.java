@@ -10,12 +10,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Participant {
-    private int participantId       ;
-    private int meetingId           ;
-    private int userId              ;
-    private String signInStatus       ;
-    private String signOutStatus      ;
-    private String leaveStatus         ;
+    private int participantId;
+    private int meetingId;
+    private int userId;
+    private String signInStatus;
+    private String signOutStatus;
+    private String leaveStatus;
 
 
 }

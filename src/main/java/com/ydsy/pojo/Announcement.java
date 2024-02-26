@@ -6,15 +6,16 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.sql.Timestamp;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class Announcement {
-   private int announcementId      ;
-   private int userId              ;
-   private String announcementContent ;
-   private Timestamp createdAt           ;
+    private int announcementId;
+    private int userId;
+    private String announcementContent;
+    private Timestamp createdAt;
 
 
 }

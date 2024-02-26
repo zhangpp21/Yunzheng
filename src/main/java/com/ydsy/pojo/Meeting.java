@@ -10,10 +10,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Meeting {
-  private int meetingId      ;
-  private String meetingName    ;
-  private int userId  ;
-  private String meetingContent ;
+    private int meetingId;
+    private String meetingName;
+    private int userId;
+    private String meetingContent;
 
 
 }

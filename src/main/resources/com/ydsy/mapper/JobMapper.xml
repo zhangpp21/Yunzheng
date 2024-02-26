@@ -4,13 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ydsy.mapper.JobMapper">
     <resultMap id="jobsResultMap" type="Job">
-        <result column="job_id" property = "jobId"/>
-        <result column="job_name" property = "jobName"/>
-        <result column="job_count" property = "jobCount"/>
+        <result column="job_id" property="jobId"/>
+        <result column="job_name" property="jobName"/>
+        <result column="job_count" property="jobCount"/>
     </resultMap>
 
     <select id="selectAll" resultMap="jobsResultMap">
-        select  * from jobs;
+        select *
+        from jobs;
 
     </select>
 </mapper>
