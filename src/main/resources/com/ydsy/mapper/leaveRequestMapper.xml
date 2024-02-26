@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ydsy.mapper.leave_requestMapper">
-    <resultMap id="leave_requestsResultMap" type="LeaveRequest">
+<mapper namespace="com.ydsy.mapper.leaveRequestMapper">
+    <resultMap id="leaveRequestsResultMap" type="LeaveRequest">
         <result column="leave_request_id" property="leaveRequestId"/>
         <result column="user_id" property="userId"/>
         <result column="leave_request_time" property="leaveRequestTime"/>
@@ -10,7 +10,7 @@
         <result column="approve_status" property="approveStatus"/>
     </resultMap>
 
-    <select id="selectAll" resultMap="leave_requestsResultMap">
+    <select id="selectAll" resultMap="leaveRequestsResultMap">
         select *
         from leave_requests;
     </select>
