@@ -1,10 +1,11 @@
 package com.ydsy.pojo;
 
-import cn.hutool.core.date.DateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
@@ -13,7 +14,7 @@ import lombok.ToString;
 public class LeaveRequest {
     private int leaveRequestId;
     private int userId;
-    private DateTime leaveRequestTime;
+    private Timestamp leaveRequestTime;
     private String leaveRequestReason;
     private int approveId;
     private int approveStatus;

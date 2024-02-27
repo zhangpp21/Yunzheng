@@ -22,6 +22,4 @@ public class User {
     private String majorClass;
     private String stage;
     private int directionId;
-
-
 }
