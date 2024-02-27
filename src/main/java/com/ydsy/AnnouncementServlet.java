@@ -1,60 +1,77 @@
 package com.ydsy;
 
-import com.ydsy.mapper.AnnouncementMapper;
 import com.ydsy.pojo.Announcement;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import com.ydsy.mapper.AnnouncementMapper;
+import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Timestamp;
 
-@WebServlet("/announcement")
+@WebServlet(name = "AnnouncementServlet",value = "/announcement-servlet")
 public class AnnouncementServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
     private SqlSessionFactory sqlSessionFactory;
 
     @Override
     public void init() throws ServletException {
         super.init();
-        // 创建 MyBatis 的配置对象
-        String resource = "mybatis-config.xml"; // MyBatis 配置文件的路径
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resource)) {
+        // 初始化 SqlSessionFactory
+        try {
+            String resource = "mybatis-config.xml";
+            InputStream inputStream = Resources.getResourceAsStream(resource);
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         } catch (IOException e) {
-            throw new ServletException("Error initializing MyBatis", e);
+            e.printStackTrace();
+            throw new RuntimeException("Error initializing SqlSessionFactory. Cause: " + e);
         }
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 从前端获取通知内容、用户ID和创建时间
-        String content = request.getParameter("content");
-        int userId = Integer.parseInt(request.getParameter("userId"));
-        Timestamp createdAt = new Timestamp(System.currentTimeMillis()); // 创建当前时间戳
-
-        // 创建通知对象
-        Announcement announcement = new Announcement();
-        announcement.setUserId(userId);
-        announcement.setAnnouncementContent(content);
-        announcement.setCreatedAt(createdAt);
-
-        // 将通知插入数据库
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-            AnnouncementMapper mapper = sqlSession.getMapper(AnnouncementMapper.class);
-            mapper.addAnnouncement(announcement);
-            sqlSession.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        }
+            // 获取 AnnouncementMapper 实例
+            AnnouncementMapper announcementMapper = sqlSession.getMapper(AnnouncementMapper.class);
 
-        // 返回成功响应
-        response.getWriter().println("Announcement added successfully");
+            // 从请求中获取通知内容、方向和期数
+            String content = req.getParameter("content");
+            String direction = req.getParameter("direction");
+            int period = Integer.parseInt(req.getParameter("period"));
+
+            // 创建 Announcement 对象
+            Announcement announcement = new Announcement();
+            announcement.setContent(content);
+            announcement.setDirection(direction);
+            announcement.setPeriod(period);
+
+            // 插入通知到数据库
+            announcementMapper.insertAnnouncement(announcement);
+
+            // 提交事务
+            sqlSession.commit();
+
+            // 返回 JSON 数据给前端
+            resp.setContentType("application/json");
+            resp.setCharacterEncoding("UTF-8");
+            resp.getWriter().write("{\"message\": \"Announcement sent successfully\"}");
+        } catch (IOException e) {
+            // 处理 IO 异常
+            e.printStackTrace();
+            resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        } catch (NumberFormatException e) {
+            // 处理数字格式异常
+            e.printStackTrace();
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        } catch (Exception e) {
+            // 处理其他异常
+            e.printStackTrace();
+            resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
     }
 }
