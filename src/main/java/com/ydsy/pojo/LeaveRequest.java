@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @ToString
 public class LeaveRequest {
     private int leaveRequestId;
-    private int userId;
+    private int applicantId;
     private Timestamp leaveRequestTime;
     private String leaveRequestReason;
     private int approveId;

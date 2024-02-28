@@ -4,6 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ydsy.mapper.UserMapper">
     <resultMap id="usersResultMap" type="User">
+        <result column="user_id" property="userId"/>
         <result column="job_id" property="jobId"/>
         <result column="personal_signature" property="personalSignature"/>
         <result column="student_id" property="studentId"/>
@@ -14,6 +15,12 @@
     <select id="selectAll" resultMap="usersResultMap">
         select *
         from users;
-
     </select>
+
+    <select id="selectByUserIdUser" resultType="com.ydsy.pojo.User" resultMap="usersResultMap">
+        select *
+        from users
+        where user_id = #{userId};
+    </select>
+
 </mapper>

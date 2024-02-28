@@ -12,6 +12,5 @@
     <select id="selectAll" resultMap="directionsResultMap">
         select *
         from directions;
-
     </select>
 </mapper>

@@ -12,6 +12,5 @@
     <select id="selectAll" resultMap="jobsResultMap">
         select *
         from jobs;
-
     </select>
 </mapper>

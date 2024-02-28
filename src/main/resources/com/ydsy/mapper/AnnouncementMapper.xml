@@ -5,6 +5,7 @@
 <mapper namespace="com.ydsy.mapper.AnnouncementMapper">
     <resultMap id="announcementsResultMap" type="Announcement">
         <result column="announcement_id" property="announcementId"/>
+        <result column="creatorId" property="creatorId"/>
         <result column="announcement_content" property="announcementContent"/>
         <result column=" created_at" property="createdAt"/>
     </resultMap>
@@ -12,6 +13,6 @@
     <select id="selectAll" resultMap="announcementsResultMap">
         select *
         from announcements;
-
     </select>
+
 </mapper>

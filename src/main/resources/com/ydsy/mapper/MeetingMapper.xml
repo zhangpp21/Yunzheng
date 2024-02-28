@@ -6,7 +6,7 @@
     <resultMap id="meetingsResultMap" type="Meeting">
         <result column="meeting_id" property="meetingId"/>
         <result column="meeting_name" property="meetingName"/>
-        <result column="user_id" property="userId"/>
+        <result column="creator_id" property="creator_id"/>
         <result column="meeting_content" property="meetingContent"/>
     </resultMap>
 

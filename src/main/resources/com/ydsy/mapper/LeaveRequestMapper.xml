@@ -3,7 +3,7 @@
 <mapper namespace="com.ydsy.mapper.LeaveRequestMapper">
     <resultMap id="leaveRequestsResultMap" type="LeaveRequest">
         <result column="leave_request_id" property="leaveRequestId"/>
-        <result column="user_id" property="userId"/>
+        <result column="applicant_id" property="applicantId"/>
         <result column="leave_request_time" property="leaveRequestTime"/>
         <result column="leave_request_reason" property="leaveRequestReason"/>
         <result column="approve_id" property="approveId"/>
@@ -15,9 +15,9 @@
         from leave_requests;
     </select>
 
-    <insert id="addNeoLeaveRequest" >
-        INSERT INTO leave_requests (application_id, leave_request_time, leave_request_reason)
-        VALUES (#{applicationId}, #{leaveRequestTime}, #{leaveRequestReason});
+    <insert id="addNeoLeaveRequest">
+        INSERT INTO leave_requests (applicant_id, leave_request_time, leave_request_reason)
+        VALUES (#{applicantId}, #{leaveRequestTime}, #{leaveRequestReason});
     </insert>
 
 </mapper>

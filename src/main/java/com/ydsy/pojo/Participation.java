@@ -9,10 +9,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Participant {
+public class Participation {
+    private int participationId;
     private int participantId;
     private int meetingId;
-    private int userId;
+    private int approveId;
     private String signInStatus;
     private String signOutStatus;
     private String leaveStatus;

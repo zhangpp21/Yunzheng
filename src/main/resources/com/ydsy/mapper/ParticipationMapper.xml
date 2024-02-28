@@ -2,18 +2,19 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ydsy.mapper.ParticipantMapper">
-    <resultMap id="participantsResultMap" type="Participant">
+<mapper namespace="com.ydsy.mapper.ParticipationMapper">
+    <resultMap id="ParticipationResultMap" type="Participation">
+        <result column="participation_id" property="participationId"/>
         <result column="participant_id" property="participantId"/>
-        <result column=" user_id" property="userId"/>
+        <result column="meeting_id" property="meetingId"/>
+        <result column="approve_id" property="approveId"/>
         <result column="sign_in_status" property="signInStatus"/>
         <result column="sign_out_status" property="signOutStatus"/>
         <result column="leave_status" property="leaveStatus"/>
     </resultMap>
 
-    <select id="selectAll" resultMap="participantsResultMap">
+    <select id="selectAll" resultMap="ParticipationResultMap">
         select *
-        from participants;
-
+        from Participations;
     </select>
 </mapper>

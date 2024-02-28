@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @ToString
 public class Announcement {
     private int announcementId;
-    private int userId;
+    private int creatorId;
     private String announcementContent;
     private Timestamp createdAt;
 
