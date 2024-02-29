@@ -20,17 +20,14 @@ public class LeaveRequestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String string = request.getParameter("leaveRequestTime");
-        Timestamp leaveRequestTime = Timestamp.valueOf(request.getParameter("leaveRequestTime"));
+        int leaveRequestMeeting = Integer.parseInt(request.getParameter("leaveRequestMeeting"));
         String leaveRequestReason = request.getParameter("leaveRequestReason");
         // HttpSession session = request.getSession();
         // User user = (User) session.getAttribute("user");
-
         User user = leaveRequestService.selectUserByUserId(1);
-
         LeaveRequest leaveRequest = new LeaveRequest();
         leaveRequest.setApplicantId(user.getUserId());
-        leaveRequest.setLeaveRequestTime(leaveRequestTime);
+        leaveRequest.setLeaveRequestMeeting(leaveRequestMeeting);
         leaveRequest.setLeaveRequestReason(leaveRequestReason);
 
         leaveRequestService.addNeoLeaveRequest(leaveRequest);

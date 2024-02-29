@@ -12,7 +12,7 @@ import lombok.ToString;
 public class Meeting {
     private int meetingId;
     private String meetingName;
-    private int creator_id;
+    private int creatorId;
     private String meetingContent;
 
 
