@@ -1,33 +1,22 @@
-package com.ydsy.service;
+package com.ydsy.service.impl;
 
-import com.ydsy.mapper.LeaveRequestMapper;
 import com.ydsy.mapper.UserMapper;
-import com.ydsy.pojo.LeaveRequest;
 import com.ydsy.pojo.User;
 import com.ydsy.util.SqlSessionFactoryUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import java.sql.Timestamp;
-
-public class LeaveRequestService {
+public class UserService {
 
     SqlSessionFactory factory = SqlSessionFactoryUtils.getSqlSessionFactory();
 
-    public void addNeoLeaveRequest(LeaveRequest leaveRequest) {
-        // 获取SqlSession`\
-        SqlSession sqlSession = factory.openSession();
-        // 获取LeaveRequestMapper
-        LeaveRequestMapper mapper = sqlSession.getMapper(LeaveRequestMapper.class);
-
-        mapper.addNeoLeaveRequest(leaveRequest);
-
-        sqlSession.commit();
-        sqlSession.close();
-    }
-
+    /**
+     * 根据用户id获取用户对象
+     * @param userId
+     * @return
+     */
     public User selectUserByUserId(int userId) {
-        // 获取SqlSession`\
+        // 获取SqlSession
         SqlSession sqlSession = factory.openSession();
         // UserMapper
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);

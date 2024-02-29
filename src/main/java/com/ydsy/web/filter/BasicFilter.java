@@ -4,6 +4,9 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
+/**
+ * 该类目前无任何作用
+ */
 @WebFilter("")
 public class BasicFilter implements Filter {
     @Override

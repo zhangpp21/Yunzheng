@@ -3,8 +3,8 @@ package com.ydsy.web.servlet;
 import com.alibaba.fastjson.JSON;
 import com.ydsy.pojo.LeaveRequest;
 import com.ydsy.pojo.User;
-import com.ydsy.service.LeaveRequestService;
-import com.ydsy.util.RespStatusEnum;
+import com.ydsy.service.impl.LeaveRequestService;
+import com.ydsy.util.BasicResultVO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -20,24 +20,38 @@ public class LeaveRequestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String string = request.getParameter("leaveRequestTime");
         Timestamp leaveRequestTime = Timestamp.valueOf(request.getParameter("leaveRequestTime"));
         String leaveRequestReason = request.getParameter("leaveRequestReason");
-        // HttpSession session = request.getSession();
-        // User user = (User) session.getAttribute("user");
 
-        User user = leaveRequestService.selectUserByUserId(1);
+        /*
+          获取session中的user数据
+         */
+        HttpSession session = request.getSession();
+        User student = (User) session.getAttribute("user");
 
+        /*
+        将未审批假条数据存储在pojo中
+         */
         LeaveRequest leaveRequest = new LeaveRequest();
-        leaveRequest.setApplicantId(user.getUserId());
+        leaveRequest.setApplicantId(student.getUserId());
         leaveRequest.setLeaveRequestTime(leaveRequestTime);
         leaveRequest.setLeaveRequestReason(leaveRequestReason);
 
+        /*
+        将未审批假条数据存储到数据库中
+         */
         leaveRequestService.addNeoLeaveRequest(leaveRequest);
 
+        /*
+        向前端返回成功码和未审批假条数据
+         */
         response.setContentType("application/json;charset=utf-8");
-        response.getWriter().write(JSON.toJSONString(RespStatusEnum.SUCCESS));
+        response.getWriter().write(JSON.toJSONString(BasicResultVO.success("提交申请成功", leaveRequest)));
 
+        /*
+        重定向回此界面
+         */
+        response.sendRedirect(String.valueOf(request.getRequestURL()));
     }
 
     @Override

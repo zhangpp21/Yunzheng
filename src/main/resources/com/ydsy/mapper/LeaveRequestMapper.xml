@@ -10,14 +10,39 @@
         <result column="approve_status" property="approveStatus"/>
     </resultMap>
 
+
     <select id="selectAll" resultMap="leaveRequestsResultMap">
         select *
         from leave_requests;
     </select>
 
-    <insert id="addNeoLeaveRequest">
+    <insert id="InsertNeoLeaveRequest">
         INSERT INTO leave_requests (applicant_id, leave_request_time, leave_request_reason)
         VALUES (#{applicantId}, #{leaveRequestTime}, #{leaveRequestReason});
     </insert>
 
+    <select id="selectByLeaveRequestId" resultType="com.ydsy.pojo.LeaveRequest" resultMap="leaveRequestsResultMap">
+        select *
+        from leave_requests
+        where leave_request_id = #{leaveRequestId};
+    </select>
+
+    <select id="selectAllByApplicantDirection" resultType="com.ydsy.pojo.LeaveRequest"
+            resultMap="leaveRequestsResultMap">
+        select *
+        from leave_requests
+        where approve_status = -1
+          and applicant_id in
+              (select user_id
+               from users
+               where job_id = (select job_id from jobs where job_name = '学员')
+                 and direction_id = (select direction_id from users where direction_id = #{directionId}));
+    </select>
+
+    <update id="UpdateLeaveRequestApproval">
+        update leave_requests
+        set approve_id     = #{approveId},
+            approve_status = #{approveStatus}
+        where leave_request_id = #{leaveRequestId};
+    </update>
 </mapper>

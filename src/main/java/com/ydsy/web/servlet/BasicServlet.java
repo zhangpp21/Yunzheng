@@ -5,6 +5,9 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
+/**
+ * 该类目前无任何作用
+ */
 @WebServlet("/basicServlet")
 public class BasicServlet extends HttpServlet {
     @Override
