@@ -2,8 +2,10 @@ package com.ydsy.web.servlet;
 
 import com.alibaba.fastjson.JSON;
 import com.ydsy.pojo.LeaveRequest;
+import com.ydsy.pojo.Participation;
 import com.ydsy.pojo.User;
 import com.ydsy.service.impl.LeaveRequestService;
+import com.ydsy.service.impl.ParticipationService;
 import com.ydsy.util.BasicResultVO;
 
 import javax.servlet.*;
@@ -15,6 +17,7 @@ import java.io.IOException;
 public class ApproveLeaveRequestServlet extends HttpServlet {
 
     private final LeaveRequestService leaveRequestService = new LeaveRequestService();
+    private final ParticipationService participationService = new ParticipationService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,7 +42,19 @@ public class ApproveLeaveRequestServlet extends HttpServlet {
         将pojo中的审批数据更新到数据库中
          */
         leaveRequestService.UpdateLeaveRequestApproval(leaveRequest);
-
+        /*
+        获取并更新参会情况
+         */
+        Participation participation = participationService.selectByMeetingIdAndParticipantId
+            (leaveRequest.getLeaveRequestMeeting(), leaveRequest.getApplicantId());
+        if (approveStatus == 1)         // 批准
+        {
+            participation.setLeaveStatus("Approved");
+        } else if (approveStatus == 0)            // 不批准
+        {
+            participation.setLeaveStatus("Rejected");
+        }
+        participationService.updateLeaveStatus(participation);
         /*
         向前端返回成功码和审批后的假条数据
          */

@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 public class LeaveRequest {
     private int leaveRequestId;
     private int applicantId;
-    private Timestamp leaveRequestTime;
+    private int leaveRequestMeeting;
     private String leaveRequestReason;
     private int approveId;
     private int approveStatus;

@@ -4,12 +4,11 @@
     <resultMap id="leaveRequestsResultMap" type="LeaveRequest">
         <result column="leave_request_id" property="leaveRequestId"/>
         <result column="applicant_id" property="applicantId"/>
-        <result column="leave_request_time" property="leaveRequestTime"/>
+        <result column="leave_request_meeting" property="leaveRequestMeeting"/>
         <result column="leave_request_reason" property="leaveRequestReason"/>
         <result column="approve_id" property="approveId"/>
         <result column="approve_status" property="approveStatus"/>
     </resultMap>
-
 
     <select id="selectAll" resultMap="leaveRequestsResultMap">
         select *
@@ -17,7 +16,7 @@
     </select>
 
     <insert id="InsertNeoLeaveRequest">
-        INSERT INTO leave_requests (applicant_id, leave_request_time, leave_request_reason)
+        INSERT INTO leave_requests (applicant_id, leave_request_meeting, leave_request_reason)
         VALUES (#{applicantId}, #{leaveRequestTime}, #{leaveRequestReason});
     </insert>
 
