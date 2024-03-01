@@ -1,8 +1,6 @@
 package com.ydsy.service.impl;
 
-import com.ydsy.mapper.LeaveRequestMapper;
 import com.ydsy.mapper.ParticipationMapper;
-import com.ydsy.pojo.LeaveRequest;
 import com.ydsy.pojo.Participation;
 import com.ydsy.util.SqlSessionFactoryUtils;
 import org.apache.ibatis.session.SqlSession;
