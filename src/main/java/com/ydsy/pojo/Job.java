@@ -14,5 +14,4 @@ public class Job {
     private String jobName;
     private int jobCount;
 
-
 }

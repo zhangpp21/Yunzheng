@@ -42,6 +42,7 @@ public class ApproveLeaveRequestServlet extends HttpServlet {
         将pojo中的审批数据更新到数据库中
          */
         leaveRequestService.UpdateLeaveRequestApproval(leaveRequest);
+
         /*
         获取并更新参会情况
          */
@@ -55,11 +56,17 @@ public class ApproveLeaveRequestServlet extends HttpServlet {
             participation.setLeaveStatus("Rejected");
         }
         participationService.updateLeaveStatus(participation);
+
         /*
         向前端返回成功码和审批后的假条数据
          */
         response.setContentType("application/json;charset=utf-8");
         response.getWriter().write(JSON.toJSONString(BasicResultVO.success("审批成功", leaveRequest)));
+
+        /*
+        重定向回查询总假条页面
+         */
+        response.sendRedirect(request.getContextPath() + "/leaveRequestServlet");
     }
 
     @Override
