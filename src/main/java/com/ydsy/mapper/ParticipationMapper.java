@@ -1,6 +1,7 @@
 package com.ydsy.mapper;
 
 import com.ydsy.pojo.Participation;
+import org.apache.ibatis.annotations.Param;
 
 public interface ParticipationMapper {
 
@@ -10,7 +11,7 @@ public interface ParticipationMapper {
      * @param participantId
      * @return
      */
-    Participation selectByMeetingIdAndParticipantId(int meetingId, int participantId);
+    Participation selectByMeetingIdAndParticipantId(@Param("meetingId") int meetingId,@Param("participantId") int participantId);
 
     /**
      * 更新参会情况
