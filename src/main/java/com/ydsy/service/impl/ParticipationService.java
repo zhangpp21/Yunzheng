@@ -3,7 +3,6 @@ package com.ydsy.service.impl;
 import com.ydsy.mapper.ParticipationMapper;
 import com.ydsy.pojo.Participation;
 import com.ydsy.util.SqlSessionFactoryUtils;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -18,7 +17,7 @@ public class ParticipationService {
      * @param participantId
      * @return
      */
-    public Participation selectByMeetingIdAndParticipantId(@Param("meetingId") int meetingId, @Param("participantId") int participantId) {
+    public Participation selectByMeetingIdAndParticipantId(int meetingId, int participantId) {
         // 获取SqlSession
         SqlSession sqlSession = factory.openSession();
         // ParticipationMapper
