@@ -14,8 +14,8 @@
         select *
         from leave_requests;
     </select>
-
     <insert id="InsertNeoLeaveRequest">
+
         INSERT INTO leave_requests (applicant_id, leave_request_meeting, leave_request_reason)
         VALUES (#{applicantId}, #{leaveRequestTime}, #{leaveRequestReason});
     </insert>

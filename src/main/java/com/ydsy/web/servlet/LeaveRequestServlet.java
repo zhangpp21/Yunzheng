@@ -62,6 +62,7 @@ public class LeaveRequestServlet extends HttpServlet {
          */
         LeaveRequest leaveRequest = new LeaveRequest();
         leaveRequest.setApplicantId(student.getUserId());
+
         leaveRequest.setLeaveRequestMeeting(leaveRequestMeeting);
         leaveRequest.setLeaveRequestReason(leaveRequestReason);
 

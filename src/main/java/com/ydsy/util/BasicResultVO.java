@@ -1,6 +1,7 @@
 package com.ydsy.util;
 
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
