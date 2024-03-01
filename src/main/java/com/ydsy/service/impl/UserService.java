@@ -12,6 +12,7 @@ public class UserService {
 
     /**
      * 根据用户id获取用户对象
+     *
      * @param userId
      * @return
      */
@@ -21,10 +22,26 @@ public class UserService {
         // UserMapper
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-        User user =  mapper.selectByUserIdUser(userId);
+        User user = mapper.selectByUserIdUser(userId);
 
         sqlSession.close();
 
         return user;
+    }
+
+    /**
+     * 更新用户信息
+     * @param user
+     */
+    public void updateAll(User user) {
+        // 获取SqlSession
+        SqlSession sqlSession = factory.openSession();
+        // UserMapper
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+        mapper.updateAll(user);
+
+        sqlSession.commit();
+        sqlSession.close();
     }
 }

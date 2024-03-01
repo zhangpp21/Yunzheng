@@ -6,4 +6,5 @@ public interface UserMapper {
 
     User selectByUserIdUser(int userId);
 
+    void updateAll(User user);
 }

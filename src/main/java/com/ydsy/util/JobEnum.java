@@ -8,6 +8,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public enum JobEnum {
+
     /**
      * 学员
      */

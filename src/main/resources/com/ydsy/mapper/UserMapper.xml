@@ -12,6 +12,12 @@
         <result column="direction_id" property="directionId"/>
     </resultMap>
 
+    <update id="updateAll">
+        update users
+        set direction_id = #{directionId}
+        where user_id = #{userId};
+    </update>
+
     <select id="selectAll" resultMap="usersResultMap">
         select *
         from users;

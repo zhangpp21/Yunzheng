@@ -8,12 +8,15 @@ import com.ydsy.service.impl.LeaveRequestService;
 import com.ydsy.service.impl.ParticipationService;
 import com.ydsy.util.BasicResultVO;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/ApproveLeaveRequestServlet")
+@WebServlet("/approveLeaveRequestServlet")
 public class ApproveLeaveRequestServlet extends HttpServlet {
 
     private final LeaveRequestService leaveRequestService = new LeaveRequestService();
@@ -21,14 +24,14 @@ public class ApproveLeaveRequestServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /*
-          获取session中的user数据
+        /**
+         * 获取session中的user数据
          */
         HttpSession session = request.getSession();
         User manager = (User) session.getAttribute("user");
 
-        /*
-        将审批数据存储在pojo中
+        /**
+         * 将审批数据存储在pojo中
          */
         int leaveRequestId = Integer.parseInt(request.getParameter("leaveRequestId"));
         int approveStatus = Integer.parseInt(request.getParameter("approveStatus"));
@@ -38,13 +41,13 @@ public class ApproveLeaveRequestServlet extends HttpServlet {
         leaveRequest.setApproveStatus(approveStatus);
         leaveRequest.setApproveId(approveId);
 
-        /*
-        将pojo中的审批数据更新到数据库中
+        /**
+         * 将pojo中的审批数据更新到数据库中
          */
         leaveRequestService.UpdateLeaveRequestApproval(leaveRequest);
 
-        /*
-        获取并更新参会情况
+        /**
+         * 获取并更新参会情况
          */
         Participation participation = participationService.selectByMeetingIdAndParticipantId
             (leaveRequest.getLeaveRequestMeeting(), leaveRequest.getApplicantId());
@@ -57,16 +60,16 @@ public class ApproveLeaveRequestServlet extends HttpServlet {
         }
         participationService.updateLeaveStatus(participation);
 
-        /*
-        向前端返回成功码和审批后的假条数据
+        /**
+         * 向前端返回成功码和审批后的假条数据
          */
         response.setContentType("application/json;charset=utf-8");
         response.getWriter().write(JSON.toJSONString(BasicResultVO.success("审批成功", leaveRequest)));
 
-        /*
-        重定向回查询总假条页面
+        /**
+         * 重定向回查询总假条页面
          */
-        response.sendRedirect(request.getContextPath() + "/leaveRequestServlet");
+        response.sendRedirect(request.getContextPath() + "/selectAllLeaveRequestServlet");
     }
 
     @Override
