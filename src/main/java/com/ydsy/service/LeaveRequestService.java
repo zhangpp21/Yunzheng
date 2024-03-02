@@ -32,7 +32,7 @@ public class LeaveRequestService {
         // UserMapper
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-        User user =  mapper.selectByUserIdUser(userId);
+        User user =  mapper.selectByUserId(userId);
 
         sqlSession.close();
 

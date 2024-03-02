@@ -4,12 +4,15 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/basicServlet")
 public class BasicServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        PrintWriter writer = response.getWriter();
+        response.setContentType("text/html;charset=utf-8");
+        writer.write("登陆成功");
     }
 
     @Override

@@ -14,7 +14,7 @@ CREATE TABLE users
     account            VARCHAR(255)        NOT NULL,   -- 账号，不能为空
     password           VARCHAR(255)        NOT NULL,   -- 密码，不能为空
     email              VARCHAR(255) UNIQUE NOT NULL,   -- 邮箱，唯一且不能为空
-    name               VARCHAR(255)        NOT NULL,   -- 姓名，不能为空
+    name               VARCHAR(255)        ,   -- 姓名，不能为空
     job_id             INT,                            -- 职位
     awards             TEXT,                           -- 获奖经历
     personal_signature TEXT,                           -- 个人签名

@@ -12,15 +12,5 @@
         <result column="direction_id" property="directionId"/>
     </resultMap>
 
-    <select id="selectAll" resultMap="usersResultMap">
-        select *
-        from users;
-    </select>
-
-    <select id="selectByUserIdUser" resultType="com.ydsy.pojo.User" resultMap="usersResultMap">
-        select *
-        from users
-        where user_id = #{userId};
-    </select>
 
 </mapper>
