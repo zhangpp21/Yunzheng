@@ -12,7 +12,7 @@ public class DirectionService {
     /**
      * 更新各方向人数
      */
-    public void updateCount(){
+    public void updateCount() {
         // 获取SqlSession
         SqlSession sqlSession = factory.openSession();
         // DirectionMapper

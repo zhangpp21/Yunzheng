@@ -13,9 +13,10 @@ public class MeetingService {
 
     /**
      * 获取所有会议id
+     *
      * @return
      */
-    public List<Integer> selectAllMeetingId(){
+    public List<Integer> selectAllMeetingId() {
         // 获取SqlSession
         SqlSession sqlSession = factory.openSession();
         // MeetingMapper

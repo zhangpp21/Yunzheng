@@ -1,13 +1,9 @@
 package com.ydsy.web.filter;
 
-import com.ydsy.pojo.User;
-import com.ydsy.util.JobEnum;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter("")
@@ -41,19 +37,19 @@ public class LoginFilter implements Filter {
 
         /**
          * 对所有人都不拦截的网址
-        String[] urls = {"/imgs/", "/css/", "/loginServlet", "/registerServlet", "index.jsp"};
-        String url = req.getRequestURL().toString();
-        for (String u : urls) {
-            if (url.contains(u)) {
-                chain.doFilter(request, response);
-                return;
-            }
-        }
+         String[] urls = {"/imgs/", "/css/", "/loginServlet", "/registerServlet", "index.jsp"};
+         String url = req.getRequestURL().toString();
+         for (String u : urls) {
+         if (url.contains(u)) {
+         chain.doFilter(request, response);
+         return;
+         }
+         }
 
-        HttpSession session = req.getSession();
-        User user = (User) session.getAttribute("user");
+         HttpSession session = req.getSession();
+         User user = (User) session.getAttribute("user");
 
-        *//**
+         *//**
          * 对学生端不拦截的网址
          *//*
         String[] studentUrls = {"/leaveRequestServlet"};

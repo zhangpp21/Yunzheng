@@ -9,6 +9,7 @@ public interface DirectionApplicationMapper {
 
     /**
      * 存入新的方向申请到数据库
+     *
      * @param directionApplication
      */
     void insertNeoDirectionApplication(DirectionApplication directionApplication);

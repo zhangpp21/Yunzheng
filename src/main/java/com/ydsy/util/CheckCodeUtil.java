@@ -31,9 +31,9 @@ public class CheckCodeUtil {
     /**
      * 输出随机验证码图片流,并返回验证码值（一般传入输出流，响应response页面端，Web项目用的较多）
      *
-     * @param width 图片宽度
-     * @param height 图片高度
-     * @param os  输出流
+     * @param width      图片宽度
+     * @param height     图片高度
+     * @param os         输出流
      * @param verifySize 数据长度
      * @return 验证码数据
      * @throws IOException
@@ -92,7 +92,6 @@ public class CheckCodeUtil {
     }
 
 
-
     /**
      * 生成指定验证码图像文件
      *
@@ -141,8 +140,8 @@ public class CheckCodeUtil {
         // 创建颜色集合，使用java.awt包下的类
         Color[] colors = new Color[5];
         Color[] colorSpaces = new Color[]{Color.WHITE, Color.CYAN,
-                Color.GRAY, Color.LIGHT_GRAY, Color.MAGENTA, Color.ORANGE,
-                Color.PINK, Color.YELLOW};
+            Color.GRAY, Color.LIGHT_GRAY, Color.MAGENTA, Color.ORANGE,
+            Color.PINK, Color.YELLOW};
         float[] fractions = new float[colors.length];
         for (int i = 0; i < colors.length; i++) {
             colors[i] = colorSpaces[rand.nextInt(colorSpaces.length)];
@@ -253,9 +252,9 @@ public class CheckCodeUtil {
 
         for (int i = 0; i < h1; i++) {
             double d = (double) (period >> 1)
-                    * Math.sin((double) i / (double) period
-                    + (6.2831853071795862D * (double) phase)
-                    / (double) frames);
+                * Math.sin((double) i / (double) period
+                + (6.2831853071795862D * (double) phase)
+                / (double) frames);
             g.copyArea(0, i, w1, 1, (int) d, 0);
             if (borderGap) {
                 g.setColor(color);
@@ -275,9 +274,9 @@ public class CheckCodeUtil {
         int phase = 7;
         for (int i = 0; i < w1; i++) {
             double d = (double) (period >> 1)
-                    * Math.sin((double) i / (double) period
-                    + (6.2831853071795862D * (double) phase)
-                    / (double) frames);
+                * Math.sin((double) i / (double) period
+                + (6.2831853071795862D * (double) phase)
+                / (double) frames);
             g.copyArea(i, 0, 1, h1, 0, (int) d);
             if (borderGap) {
                 g.setColor(color);

@@ -83,9 +83,9 @@ public final class BasicResultVO<T> {
      */
     public static <T> BasicResultVO<T> fail() {
         return new BasicResultVO<>(
-                RespStatusEnum.FAIL,
-                RespStatusEnum.FAIL.getMsg(),
-                null
+            RespStatusEnum.FAIL,
+            RespStatusEnum.FAIL.getMsg(),
+            null
         );
     }
 
