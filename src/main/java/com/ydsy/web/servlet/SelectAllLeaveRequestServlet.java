@@ -5,6 +5,7 @@ import com.ydsy.pojo.LeaveRequest;
 import com.ydsy.pojo.User;
 import com.ydsy.service.impl.LeaveRequestService;
 import com.ydsy.util.BasicResultVO;
+import com.ydsy.util.PojoReceiveRequestDataUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @WebServlet("/selectAllLeaveRequestServlet")
@@ -22,6 +26,15 @@ public class SelectAllLeaveRequestServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        HttpServletResponse resp = response;
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        resp.setHeader("Access-Control-Max-Age", "4200");
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
+
+        User user = PojoReceiveRequestDataUtil.pojoReceiveRequestDataUtil(request, User.class);
 
         /**
          * 获取session中的user数据

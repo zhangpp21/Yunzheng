@@ -7,6 +7,7 @@ import com.ydsy.pojo.User;
 import com.ydsy.service.impl.LeaveRequestService;
 import com.ydsy.service.impl.ParticipationService;
 import com.ydsy.util.BasicResultVO;
+import com.ydsy.util.PojoReceiveRequestDataUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,11 +34,12 @@ public class ApproveLeaveRequestServlet extends HttpServlet {
         /**
          * 将审批数据存储在pojo中
          */
-        int leaveRequestId = Integer.parseInt(request.getParameter("leaveRequestId"));
-        int approveStatus = Integer.parseInt(request.getParameter("approveStatus"));
+        LeaveRequest leaveRequestFromReq = PojoReceiveRequestDataUtil.pojoReceiveRequestDataUtil(request, LeaveRequest.class);
+
         int approveId = manager.getUserId();
 
-        LeaveRequest leaveRequest = leaveRequestService.selectByLeaveRequestId(leaveRequestId);
+        int approveStatus = leaveRequestFromReq.getApproveStatus();
+        LeaveRequest leaveRequest = leaveRequestService.selectByLeaveRequestId(leaveRequestFromReq.getLeaveRequestId());
         leaveRequest.setApproveStatus(approveStatus);
         leaveRequest.setApproveId(approveId);
 

@@ -22,6 +22,7 @@ public interface UserMapper {
      */
     @Select("select * from management.users where account = #{account}")
     User selectByAccount(String account);
+
     /**
      * 根据邮箱查询用户对象
      * @param email

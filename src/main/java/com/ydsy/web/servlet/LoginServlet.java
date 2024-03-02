@@ -1,10 +1,7 @@
 package com.ydsy.web.servlet;
-import com.ydsy.mapper.UserMapper;
 import com.ydsy.pojo.User;
-import com.ydsy.service.UserService;
-import com.ydsy.util.SqlSessionFactoryUtils;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
+import com.ydsy.service.impl.UserService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
