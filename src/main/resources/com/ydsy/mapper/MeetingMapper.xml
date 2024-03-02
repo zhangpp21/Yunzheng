@@ -6,14 +6,15 @@
     <resultMap id="meetingsResultMap" type="Meeting">
         <result column="meeting_id" property = "meetingId"/>
         <result column="meeting_name" property = "meetingName"/>
-        <result column="user_id" property = "userId"/>
+        <result column="creator_id" property = "creatorId"/>
         <result column="meeting_content" property = "meetingContent"/>
     </resultMap>
-    <insert id="insertMeeting"></insert>
+    <insert id="insertMeeting" parameterType="Meeting">
+    INSERT INTO meetings (meeting_name, creator_id, meeting_content)
+    VALUES (#{meetingName}, #{creatorId}, #{meetingContent})
+    </insert>
 
     <select id="selectAll" resultMap="meetingsResultMap">
         select  * from meetings;
-
     </select>
-    <select id="getMeetingById" resultType="com.ydsy.pojo.Meeting"></select>
 </mapper>

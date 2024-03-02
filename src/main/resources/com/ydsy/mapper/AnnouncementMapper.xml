@@ -4,9 +4,4 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ydsy.mapper.AnnouncementMapper">
 
-    <insert id="insertAnnouncement" parameterType="com.ydsy.pojo.Announcement">
-        INSERT INTO announcement (content, direction, period)
-        VALUES (#{content}, #{direction}, #{period})
-    </insert>
-
 </mapper>
