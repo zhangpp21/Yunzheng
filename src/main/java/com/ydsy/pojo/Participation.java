@@ -17,6 +17,4 @@ public class Participation {
     private String signInStatus;
     private String signOutStatus;
     private String leaveStatus;
-
-
 }

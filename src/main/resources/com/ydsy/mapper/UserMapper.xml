@@ -12,5 +12,21 @@
         <result column="direction_id" property="directionId"/>
     </resultMap>
 
+    <update id="updateAll">
+        update users
+        set direction_id = #{directionId}
+        where user_id = #{userId};
+    </update>
+
+    <select id="selectAll" resultMap="usersResultMap">
+        select *
+        from users;
+    </select>
+
+    <select id="selectByUserIdUser" resultType="com.ydsy.pojo.User" resultMap="usersResultMap">
+        select *
+        from users
+        where user_id = #{userId};
+    </select>
 
 </mapper>

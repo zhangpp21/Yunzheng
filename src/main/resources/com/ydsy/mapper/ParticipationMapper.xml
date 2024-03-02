@@ -17,4 +17,18 @@
         select *
         from Participations;
     </select>
+
+    <select id="selectByMeetingIdAndParticipantId" resultType="com.ydsy.pojo.Participation" resultMap="ParticipationResultMap">
+        select *
+        from participations
+        where meeting_id = #{meetingId}
+          and participant_id = #{participantId};
+    </select>
+
+    <update id="updateLeaveStatus">
+        update participations
+        set leave_status = #{leaveStatus}
+        where participant_id = #{participationId};
+    </update>
+
 </mapper>

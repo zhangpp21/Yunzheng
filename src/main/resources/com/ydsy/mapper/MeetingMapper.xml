@@ -10,9 +10,19 @@
         <result column="meeting_content" property="meetingContent"/>
     </resultMap>
 
-    <select id="selectAll" resultMap="meetingsResultMap">
+    <select id="selectAll" resultType="meeting" resultMap="meetingsResultMap">
         select *
         from meetings;
+    </select>
 
+    <select id="selectAllMeetingId" resultType="java.lang.Integer" resultMap="meetingsResultMap">
+        select meeting_id
+        from meetings;
+    </select>
+
+    <select id="selectByMeetingId" resultType="com.ydsy.pojo.Meeting" resultMap="meetingsResultMap">
+        select *
+        from meetings
+        where meeting_id = #{meetingId};
     </select>
 </mapper>

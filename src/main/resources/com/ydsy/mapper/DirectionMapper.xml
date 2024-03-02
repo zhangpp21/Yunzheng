@@ -9,6 +9,11 @@
         <result column="direction_count" property="directionCount"/>
     </resultMap>
 
+    <update id="updateDirectionCount">
+        update directions
+        set direction_count = (select count(*) from users where users.direction_id = directions.direction_id);
+    </update>
+
     <select id="selectAll" resultMap="directionsResultMap">
         select *
         from directions;

@@ -41,4 +41,5 @@ public interface UserMapper {
     User selectByUserId(int userId);
 
 
+    void updateAll(User user);
 }
