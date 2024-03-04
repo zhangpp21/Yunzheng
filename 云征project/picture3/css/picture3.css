@@ -1,0 +1,139 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+body{
+    background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/BEBC1A382546CBEEE18BF54D89A5E259.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.version{
+    width: 1280px;
+    height: 960px;
+    margin: auto;
+    /* background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/CFD9B6C0EE640A013A436C2D7E9C7474.png"); */
+    position: relative; 
+    background-repeat: no-repeat;
+    background-size: 1280px 960px;
+}
+
+.page{
+    position: absolute;
+    width: 881px;
+    height: 613px;
+    top: 183px;
+    left: 200px;
+    border-radius: 80px;
+    background-color: rgba(255, 255, 255, 0.6); box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.logo{
+    position: absolute;
+    width: 312px;
+    height: 416px;
+    top: 150px;
+    left: 265px;
+    background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/%E6%A0%87.png");
+    background-size: 100% 100%;
+}
+
+.word{
+    position: absolute;
+    width: 441px;
+    height: 613px;
+    top: 183px;
+    left: 640px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 800;
+    border-left: 1px solid black;
+}
+
+input{
+    border: 0px;
+}
+
+button{
+    border: 0px;
+}
+
+#account{
+    position: absolute;
+    width: 300px;
+    height: 41px;
+    top: 449px;
+    left: 269px;
+    border-radius: 8px;
+    background-color: rgba(164, 196, 233, 1);
+    font-size: 20px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#account::placeholder{
+    color: rgba(0, 0, 0, 1);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#password{
+    position: absolute;
+    width: 300px;
+    height: 41px;
+    top: 516px;
+    left: 269px;
+    border-radius: 8px;
+    background-color:rgba(204, 229, 244, 1);
+    font-size: 17px;
+    font-weight: 500;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#password::placeholder{
+    color: rgba(0, 0, 0, 1);
+    font-size: 20px;
+}
+
+#forget{
+    position: absolute;
+    width: 90px;
+    height: 15px;
+    top: 572px;
+    left: 499px;
+    font-size: 14px;
+    line-height: 16.94px;
+    background-color:transparent;
+    border-style:none;
+    font-weight: bold;
+}
+
+#login{
+    position: absolute;
+    width: 142px;
+    height: 40px;
+    top: 628px;
+    left: 348px;
+    border-radius: 8px;
+    background-color: rgba(245, 235, 202, 1);
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#register{
+    position: absolute;
+    width: 142px;
+    height: 40px;
+    top: 687px;
+    left: 348px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgba(237, 235, 220, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
