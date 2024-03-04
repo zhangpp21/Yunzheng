@@ -1,7 +1,6 @@
 package com.ydsy.util;
 
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -84,9 +83,9 @@ public final class BasicResultVO<T> {
      */
     public static <T> BasicResultVO<T> fail() {
         return new BasicResultVO<>(
-                RespStatusEnum.FAIL,
-                RespStatusEnum.FAIL.getMsg(),
-                null
+            RespStatusEnum.FAIL,
+            RespStatusEnum.FAIL.getMsg(),
+            null
         );
     }
 

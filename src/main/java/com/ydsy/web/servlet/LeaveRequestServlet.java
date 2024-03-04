@@ -8,6 +8,7 @@ import com.ydsy.service.impl.LeaveRequestService;
 import com.ydsy.service.impl.MeetingService;
 import com.ydsy.service.impl.ParticipationService;
 import com.ydsy.util.BasicResultVO;
+import com.ydsy.util.PojoReceiveRequestDataUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,14 +28,24 @@ public class LeaveRequestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int leaveRequestMeeting = Integer.parseInt(request.getParameter("leaveRequestMeeting"));
-        String leaveRequestReason = request.getParameter("leaveRequestReason");
+        /**
+         * 使用自定的工具类接收数据保存到对应的pojo类中
+         */
+        LeaveRequest leaveRequest = PojoReceiveRequestDataUtil.pojoReceiveRequestDataUtil(request, LeaveRequest.class);
 
         /**
          * 获取session中的user数据
          */
         HttpSession session = request.getSession();
         User student = (User) session.getAttribute("user");
+
+        /**
+         * 假条中的申请人数据存储
+         */
+        leaveRequest.setApplicantId(student.getUserId());
+
+        int leaveRequestMeeting = leaveRequest.getLeaveRequestMeeting();
+        String leaveRequestReason = String.valueOf(leaveRequest.getLeaveRequestMeeting());
 
         /**
          * 判断会议id存不存在
@@ -52,19 +63,10 @@ public class LeaveRequestServlet extends HttpServlet {
         Participation participation = participationService.selectByMeetingIdAndParticipantId(leaveRequestMeeting, student.getUserId());
         if (participation != null) {
             response.setContentType("application/json;charset=utf-8");
-            response.getWriter().write(JSON.toJSONString(BasicResultVO.success("你已发送过此会议的请假申请",participation)));
+            response.getWriter().write(JSON.toJSONString(BasicResultVO.success("你已发送过此会议的请假申请", participation)));
             response.sendRedirect(request.getRequestURI());
             return;
         }
-
-        /**
-         * 将未审批假条数据存储在pojo中
-         */
-        LeaveRequest leaveRequest = new LeaveRequest();
-        leaveRequest.setApplicantId(student.getUserId());
-
-        leaveRequest.setLeaveRequestMeeting(leaveRequestMeeting);
-        leaveRequest.setLeaveRequestReason(leaveRequestReason);
 
         /**
          * 将未审批假条数据存储到数据库中
@@ -76,7 +78,6 @@ public class LeaveRequestServlet extends HttpServlet {
          */
         response.setContentType("application/json;charset=utf-8");
         response.getWriter().write(JSON.toJSONString(BasicResultVO.success("提交申请成功", leaveRequest)));
-
 
         /**
          * 重定向回此界面

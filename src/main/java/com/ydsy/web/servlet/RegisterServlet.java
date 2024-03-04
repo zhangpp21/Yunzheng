@@ -1,10 +1,12 @@
 package com.ydsy.web.servlet;
+
 import com.ydsy.mapper.UserMapper;
 import com.ydsy.pojo.User;
-import com.ydsy.service.UserService;
+import com.ydsy.service.impl.UserService;
 import com.ydsy.util.SqlSessionFactoryUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +35,7 @@ public class RegisterServlet extends HttpServlet {
         // 程序生成的验证码，从Session获取
         HttpSession session = request.getSession();
         String checkCodeGen = (String) session.getAttribute("checkCodeGen");
-        if(checkCodeGen != null) {
+        if (checkCodeGen != null) {
             // 比对验证码
             if (!checkCodeGen.equalsIgnoreCase(checkCode)) {
                 request.setAttribute("register_msg", "验证码错误");
@@ -41,40 +43,41 @@ public class RegisterServlet extends HttpServlet {
                 return;
             }
 
-        SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtils.getSqlSessionFactory();
-        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-            // 获取Mapper
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtils.getSqlSessionFactory();
+            try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+                // 获取Mapper
+                UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 
-            // 检查用户名是否重复
-            User existingAccount = userMapper.selectByAccount(account);
-            if (existingAccount != null) {
-                request.setAttribute("register_msg", "用户名已存在");
-                request.getRequestDispatcher("/register.jsp").forward(request, response);
-                return;
+                // 检查用户名是否重复
+                User existingAccount = userMapper.selectByAccount(account);
+                if (existingAccount != null) {
+                    request.setAttribute("register_msg", "用户名已存在");
+                    request.getRequestDispatcher("/register.jsp").forward(request, response);
+                    return;
+                }
+
+                // 检查邮箱是否重复
+                User existingEmail = userMapper.selectByEmail(email);
+                if (existingEmail != null) {
+                    request.setAttribute("register_msg", "邮箱已被注册");
+                    request.getRequestDispatcher("/register.jsp").forward(request, response);
+                    return;
+                }
+
+                // 注册新用户
+                userMapper.add(user);
+                sqlSession.commit();
+
+                // 注册成功，跳转到登录页面
+                request.setAttribute("register_msg", "注册成功，请登录");
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
             }
-
-            // 检查邮箱是否重复
-            User existingEmail = userMapper.selectByEmail(email);
-            if (existingEmail != null) {
-                request.setAttribute("register_msg", "邮箱已被注册");
-                request.getRequestDispatcher("/register.jsp").forward(request, response);
-                return;
-            }
-
-            // 注册新用户
-            userMapper.add(user);
-            sqlSession.commit();
-
-            // 注册成功，跳转到登录页面
-            request.setAttribute("register_msg", "注册成功，请登录");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
-        }}
+        }
     }
-
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-}}
+    }
+}

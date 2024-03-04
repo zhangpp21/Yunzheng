@@ -7,6 +7,7 @@ import com.ydsy.service.impl.DirectionApplicationService;
 import com.ydsy.service.impl.DirectionService;
 import com.ydsy.service.impl.UserService;
 import com.ydsy.util.BasicResultVO;
+import com.ydsy.util.PojoReceiveRequestDataUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,8 +36,10 @@ public class ApproveDirectionRequestServlet extends HttpServlet {
         /**
          * 将审批数据存储到pojo中
          */
-        int applicationId = Integer.parseInt(request.getParameter("applicationId"));
-        int approvalStatus = Integer.parseInt(request.getParameter("approvalStatus"));
+        DirectionApplication directionApplicationFromReq = PojoReceiveRequestDataUtil.pojoReceiveRequestDataUtil(request, DirectionApplication.class);
+
+        int applicationId = directionApplicationFromReq.getApplicationId();
+        int approvalStatus = directionApplicationFromReq.getApprovalStatus();
         int approverId = manager.getUserId();
 
         DirectionApplication directionApplication = directionApplicationService.selectByApplicationId(applicationId);

@@ -5,6 +5,7 @@ import com.ydsy.pojo.DirectionApplication;
 import com.ydsy.pojo.User;
 import com.ydsy.service.impl.DirectionApplicationService;
 import com.ydsy.util.BasicResultVO;
+import com.ydsy.util.PojoReceiveRequestDataUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,12 +41,9 @@ public class DirectionRequestServlet extends HttpServlet {
         /**
          * 将方向申请存入pojo中
          */
-        int applicationDirection = Integer.parseInt(request.getParameter("applicationDirection"));
-        int applicantId = student.getUserId();
 
-        DirectionApplication directionApplication = new DirectionApplication();
-        directionApplication.setApplicantId(applicantId);
-        directionApplication.setApplicationDirection(applicationDirection);
+        DirectionApplication directionApplication = PojoReceiveRequestDataUtil.pojoReceiveRequestDataUtil(request, DirectionApplication.class);
+        directionApplication.setApplicantId(student.getUserId());
 
         /**
          * 将方向申请数据存储到数据库中
