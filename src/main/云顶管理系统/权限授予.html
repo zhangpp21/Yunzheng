@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>权限授予</title>
+    <link href="权限授予.css" rel="stylesheet" type="text/css"> 
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <div class="logo">
+                <img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/%E6%9C%AA%E6%A0%87%E9%A2%98-1%204.png"/>
+            </div>
+            <button class="back" id="backButton" onclick="goBack()">返回</button>
+            
+            <div class="power">
+                <img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/%E4%B9%A6%E6%9C%AC%202%201.png" width="32" height="32"/>
+                权限授予
+            </div>
+                <div class="past">
+                    <img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/Vector.png"/>
+                </div>
+                <div class="container1">
+                    <div class="header">
+                        <div class="word">姓名</div>
+                        <div class="word">方向</div>
+                        <div class="word">期数</div>
+                        <div class="word">管理员权限</div>
+                    </div>
+                    <div class="line1">
+                        <div class="box"></div>
+                        <div class="box"></div>
+                        <div class="box"></div>
+                        <div class="box"></div>
+                    </div>
+                    <div class="line2">
+                        <div class="box"></div>
+                        <div class="box"></div>
+                        <div class="box"></div>
+                        <div class="box"></div>
+                    </div>
+                    <div class="line3">
+                        <div class="box"></div>
+                        <div class="box"></div>
+                        <div class="box"></div>
+                        <div class="box"></div>
+                    </div>
+                    <div class="line4">
+                        <div class="box"></div>
+                        <div class="box"></div>
+                        <div class="box"></div>
+                        <div class="box"></div>
+                    </div>
+                    <div class="line5">
+                        <div class="box"></div>
+                        <div class="box"></div>
+                        <div class="box"></div>
+                        <div class="box"></div>
+                    </div>
+                </div>
+                <div class="next">
+                  <img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/Vector%20(1).png"/>  
+                </div>
+                <button class="sure">确定</button>
+                <div class="succeed">授权成功!</div>
+        </div>
+    </div>
+
+
+    <script>
+        var sure = document.querySelector('.sure');
+        var succeed = document.querySelector('.succeed'); 
+        sure.addEventListener('click',function(){
+            succeed.style.display = 'block';
+        })
+        
+        setTimeout(function(){
+            succeed.style.display = 'none';
+        },3000);
+
+        //当返回按钮被点击时调用
+        function goBack(){
+            if(history.length > 1){
+                history.back();
+            }
+        }
+    </script>
+</body>
+</html>

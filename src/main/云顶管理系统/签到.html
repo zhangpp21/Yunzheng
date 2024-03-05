@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>签到签退</title>
+
+    <link href="签到.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <div class="background">
+        
+        <div class="container">
+          <div class="logo">
+            <img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/%E6%9C%AA%E6%A0%87%E9%A2%98-1%204.png"/>
+            </div>
+          <div class="menu">
+            <a href="">
+              <button class="info"><img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/image%202.png" width="38" height="38"/>
+                   &nbsp;个人信息</button>
+            </a>
+
+            <a href="./通知.html">
+              <button class="notice"><img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/image%204.png" width="38" height="38"/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;通知</button>
+            </a>
+
+            <a href="">
+              <button class="arrange"><img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/image%203.png" width="38" height="38"/>
+                  &nbsp;研学安排</button>
+            </a>
+
+            <a href="./签到.html">
+              <button class="sign"><img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/image%205.png" width="38" height="38"/>
+                  &nbsp;签到签退</button>
+            </a>
+              
+          </div>
+            <div class="container1">
+              <div class="box1">
+                <div class="signIn">签到
+                  <button class="signInButton"></button>
+                </div>
+                <div class="inDays">本月已签到 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;天
+                  <div class="inDaysClock"></div>
+                </div>
+              </div>
+              <div class="box2">
+                <div class="signOut">签退
+                  <button class="signOutButton"></button>
+                  
+                </div>
+                <div class="outDays">本月已签退 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;天
+                  <div class="outDaysClock"></div>
+                </div>
+              </div>
+              <div class="box3">
+                请选择补卡日期 : 
+                <div class="timeClock"></div>
+              </div>
+              <div class="popupIn">您已签到成功！</div>
+              <div class="popupOut">您已签退成功！</div>
+            </div>
+          </div>
+        </div>
+        </div>  
+    </div>
+
+    <script>
+      // 获取签到按钮和签到天数显示元素  
+      var signInButton = document.querySelector('.signInButton');
+      var signInDays = document.querySelector('.inDaysClock');
+      var signInCount = 0;// 签到计数器  
+      
+      //获取签退按钮和签退天数显示元素  
+      var signOutButton = document.querySelector('.signOutButton');
+      var signOutDays = document.querySelector('.outDaysClock');
+      var signOutCount = 0;// 签退计数器  
+
+      //签到功能
+      signInButton.onclick = async function(){
+        try{
+          //向服务器发送签到请求
+          const response = await fetch(http,{
+            method:'POST',
+            headers:{
+              'Content-Type':'application/json',
+            },
+            body:JSON.stringify({
+              userld:'',
+              timestamp:new Date().toISOString(),
+            }),
+
+          });
+
+          //检查响应是否成功
+          if(!response.ok){
+            throw new Error('签到失败：' + response.status);
+          }
+
+          //若服务器响应成功，更新签到计数器和显示
+          signInCount++;
+          signOutDays.textContent = signInCount;
+          console.log("签到成功！");
+        } catch(error){
+          console.error('签到发生错误',error);
+        }
+      };
+    
+
+    // 签退功能  
+    signOutButton.onclick = async function() {  
+      try {  
+        // 向服务器发送签退请求  
+        const response = await fetch(http, {  
+          method: 'POST',  
+          headers: {  
+            'Content-Type': 'application/json',  
+          },  
+          body: JSON.stringify({  
+            userId: '',   
+            timestamp: new Date().toISOString(),  
+          }),  
+        });  
+    
+        // 检查响应是否成功  
+        if (!response.ok) {  
+          throw new Error('签退失败: ' + response.status);  
+        }  
+    
+        // 假设服务器响应成功，更新签退计数器和显示  
+        signOutCount++;  
+        signOutDays.textContent = signOutCount ;  
+        console.log("签退成功");  
+      } catch (error) {  
+        // 处理错误  
+        console.error('签退发生错误:', error);  
+      }  
+    };  
+    
+    // 初始化显示已签到和已签退的天数  
+    signInDays.textContent = signInCount;  
+    signOutDays.textContent = signOutCount;  
+    var popupIn = document.querySelector('.popupIn');
+    var popupOut = document.querySelector('.popupOut');
+    
+    //监听签到按钮的点击事件
+    signInButton.addEventListener('click',function(){
+      popupIn.style.display='block'
+    })
+    
+    //设置定时器，3秒后弹窗自动消失
+    setTimeout(function(){
+      popupIn.style.display = 'none';
+    },3000);
+
+    signOutButton.addEventListener('click',function(){
+      popupOut.style.display='block'
+    })
+
+    setTimeout(function(){
+      popupOut.style.display = 'none';
+    },3000);
+
+      
+    </script>
+</body>
+</html>
