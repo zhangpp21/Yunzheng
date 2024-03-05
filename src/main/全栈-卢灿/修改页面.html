@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大总管-信息修改2</title>
+</head>
+<style>
+        * {
+            margin: 0;
+        }
+        body{
+            background :url(https://typora--image--image.oss-cn-beijing.aliyuncs.com/Group%2041.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .saveMessageBoard{
+            position: relative;
+            width: 1130px;
+            height: 840px;
+            margin: auto;
+            background-color: rgba(255,255,255,0.4);
+            border-radius: 45px;
+        }
+        .logo{
+            width: 261px;
+            height: 348px;
+            position: absolute;
+            top: 10px;
+            text-align: center;
+            line-height: 90px;
+            font-size: 35px;
+            background-repeat: no-repeat;
+            background-image: url(https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E6%9C%AA%E6%A0%87%E9%A2%98-1%204.png);
+        }
+        .return{
+            width: 135px;
+            height: 50px;
+            background-color: #ffd7d7;
+            position: absolute;
+            top: 190px;
+            left: 40px;
+            text-align: center;
+            font-size: 30px;
+            line-height: 55px;
+        }
+        .return:hover{
+            background-color: #ff88c2;
+        }
+        .return:active{
+            background-color: #f4a;
+        }
+        .saveInfor{
+            width: 240px;
+            height: 85px;
+            background-color: #CCE5F3;
+            position: absolute;
+            top: 40px;
+            left: 500px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 30px;
+        }
+        .savePic{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 530px;
+            top: 63px;
+            background-repeat: no-repeat;
+            background-image: url(https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E4%B9%A6%205%201.png);
+        }
+        .saveBgd{
+            width: 874px;
+            height: 600px;
+            background-color: rgba(135,173,164,0.2);
+            border-radius: 45px;
+            position: absolute;
+            top: 165px;
+            left: 190px;
+        }
+        .studentNameText{
+            width: 300px;
+            height: 65px;
+            position: absolute;
+            top: 30px;
+            left: 70px;
+            font-size: 33px;
+            text-align: center;
+            line-height: 60px;
+        }
+        .frame1{
+            width: 300px;
+            height: 29px;
+            position: absolute;
+            top: 120px;
+            left: 60px;
+            font-size: 25px;
+        }
+        .frame2{
+            width: 300px;
+            height: 29px;
+            position: absolute;
+            top: 57px;
+            left: 0px;
+            font-size: 25px;
+        }
+        .frame3{
+            width: 300px;
+            height: 29px;
+            position: absolute;
+            top: 114px;
+            left: 0px;
+            font-size: 25px;
+        }
+        .frame4{
+            width: 300px;
+            height: 29px;
+            position: absolute;
+            top: 171px;
+            left: 0px;
+            font-size: 25px;
+        }
+        .frame5{
+            width: 300px;
+            height: 29px;
+            position: absolute;
+            top: 228px;
+            left: 0px;
+            font-size: 25px;
+        }
+        .frame6{
+            width: 300px;
+            height: 29px;
+            position: absolute;
+            top: 285px;
+            left: 0px;
+            font-size: 25px;
+        }
+        .frame7{
+            width: 300px;
+            height: 29px;
+            position: absolute;
+            top: 342px;
+            left: 0px;
+            font-size: 25px;
+        }
+        .littleFra{
+            width: 163px;
+            height: 29px;
+            background-color: #ffffff;
+            border: none;
+            box-shadow: 0px 4px 4px 0px grey;
+            border-radius: 8px;
+            position: absolute;
+            top: 0px;
+            left: 120px;
+        }
+        .littleFra2{
+            width: 29px;
+            height: 29px;
+            background-color: #ffffff;
+            position: absolute;
+            top: 0px;
+            left: 120px;
+        }
+        .littleFra3{
+            width: 80px;
+            height: 29px;
+            position: absolute;
+            top: 0px;
+            left: 190px;
+        }
+        .signature{
+            width: 120px;
+            height: 29px;
+            position: absolute;
+            top: 0px;
+            left: 360px;
+            font-size: 25px;
+        }
+        .signatureFra{
+            width: 223px;
+            height: 127px;
+            background-color: #ffffff;
+            border: none;
+            box-shadow: 0px 4px 4px 0px grey;
+            border-radius: 8px;
+            position: absolute;
+            top: 0px;
+            left: 500px;
+            font-size: 25px;
+        }
+        .carryPrize{
+            width: 120px;
+            height: 29px;
+            position: absolute;
+            top: 200px;
+            left: 360px;
+            font-size: 25px;
+        }
+        .carryPrizeFra{
+            width: 223px;
+            height: 83px;
+            background-color: #ffffff;
+            border: none;
+            box-shadow: 0px 4px 4px 0px grey;
+            border-radius: 8px;
+            position: absolute;
+            top: 200px;
+            left: 500px;
+            font-size: 25px;
+        }
+        .carryPic{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 590px;
+            top: 243px;
+            background-repeat: no-repeat;
+            background-image: url(https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E4%B9%A6%E6%9C%AC%201.png);
+        }
+        .saveSuc{
+            width: 415px;
+            height: 75px;
+            background-color: #ADC4E5;
+            border: none;
+            position: absolute;
+            top: 390px;
+            left: 0px;
+            text-align: center;
+            font-size: 40px;
+            line-height: 65px;
+        }
+        .confirm{
+            width: 165px;
+            height: 60px;
+            background-color: white;
+            position: absolute;
+            top: 390px;
+            left: 500px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 25px;
+            
+        }
+        .confirm:hover{
+            background-color: #ffecff;
+        }
+        .confirm:active{
+            background-color: #ffd9ff;
+        }
+</style>
+<body>
+    <div class="saveMessageBgd">
+        <div class="saveMessageBoard">
+            <div class="logo"></div>
+            <div class="saveInfor">信息修改</div>
+            <div class="savePic"></div>
+            <div class="return">返回</div>
+            <div class="saveBgd">
+                <div class="studentNameText">该名学员的信息为：</div>
+                <div class="frame1">&nbsp;&nbsp;&nbsp;&nbsp;姓名<input class="littleFra"></input>
+                <div class="frame2">专业班级<input class="littleFra"></div>
+                <div class="frame3">&nbsp;&nbsp;&nbsp;&nbsp;期数<input class="littleFra"></div>
+                <div class="frame4">&nbsp;&nbsp;&nbsp;&nbsp;方向<input class="littleFra"></div>
+                <div class="frame5">&nbsp;&nbsp;&nbsp;&nbsp;职位<input class="littleFra"></div>
+                <div class="frame6">&nbsp;&nbsp;&nbsp;&nbsp;学号<input class="littleFra"></div>
+                <div class="frame7">退出方向<input class="littleFra2">
+                    <div class="littleFra3">(是/否)</div>
+                </div>
+                <div class="signature">个性签名*</div>
+                <input class="signatureFra"></input>
+                <div class="carryPrize">获奖经历*</div>
+                <input class="carryPrizeFra"></input>
+                <div class="carryPic"></div>
+                <div class="saveSuc">修改成功</div>
+                <div class="confirm">确认修改</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let confirm = document.querySelector(".confirm");
+        let saveSuc = documet.querySelector(".saveSuc")
+        var back = document.querySelector(".return");
+        back.onclick = function () {
+            location.href = "大总管信息修改.html";
+        }
+        confirm.onclick = function () {
+            this.saveSuc.style.display = 'block';
+        }    
+
+    </script>
+</body>
+</html>

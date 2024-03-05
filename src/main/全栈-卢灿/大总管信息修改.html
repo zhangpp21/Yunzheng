@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大总管-信息修改</title>
+</head>
+<style>
+        * {
+            margin: 0;
+        }
+        body{
+            background :url(https://typora--image--image.oss-cn-beijing.aliyuncs.com/Group%2040.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .saveMessageBoard{
+            position: relative;
+            margin: auto;
+            width: 1130px;
+            height: 840px;
+            background-color: #6c6c6c;
+            background-color: rgba(255,255,255,0.4);
+            border-radius: 45px;
+        }
+        .logo{
+            width: 261px;
+            height: 348px;
+            position: absolute;
+            top: 10px;
+            text-align: center;
+            line-height: 90px;
+            font-size: 35px;
+            background-repeat: no-repeat;
+            background-image: url(https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E6%9C%AA%E6%A0%87%E9%A2%98-1%204.png);
+        }
+        .return{
+            width: 135px;
+            height: 50px;
+            background-color: #ffd7d7;
+            position: absolute;
+            top: 190px;
+            left: 40px;
+            text-align: center;
+            font-size: 30px;
+            line-height: 55px;
+        }
+        .return:hover{
+            background-color: #ff88c2;
+        }
+        .return:active{
+            background-color: #f4a;
+        }
+        .saveInfor{
+            width: 240px;
+            height: 85px;
+            background-color: rgba(255, 255, 227);
+            position: absolute;
+            top: 40px;
+            left: 500px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 35px;
+        }
+        .savePic{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 530px;
+            top: 63px;
+            background-repeat: no-repeat;
+            background-image: url(https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E4%B9%A6%204%201.png);
+        }
+        .saveBgd{
+            width: 874px;
+            height: 600px;
+            background-color: rgba(239, 227, 182,0.3);
+            border-radius: 45px;
+            box-shadow: 0px 4px 4px 0px gray;
+            position: absolute;
+            top: 165px;
+            left: 190px;
+        }
+        .textReminder{
+            width: 874px;
+            position: absolute;
+            top: 120px;
+            text-align: center;
+            font-size: 35px;
+        }
+        .studenyName{
+            width: 500px;
+            height: 85px;
+            border: none;
+            position: absolute;
+            top: 220px;
+            left: 190px;
+            font-size: 50px;
+        }
+        .confirm{
+            width: 355px;
+            height: 65px;
+            background-color: white;
+            border: none;
+            position: absolute;
+            top: 380px;
+            left: 260px;
+            font-size: 35px;
+            text-align: center;
+        }
+        .confirm:hover {  
+            background-color: rgba(239, 223, 163); 
+        }
+        .confirm:active {  
+            background-color: rgba(239, 200, 57); 
+        }
+        .menu-button1 {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 30px;
+            left: 730px;
+        }
+        .menu-button2 {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 290px;
+            left: 730px;
+        }
+</style>
+<body>
+    <div class="saveMessageBgd">
+        <div class="saveMessageBoard">
+            <div class="logo"></div>
+            <div class="return">返回</div>
+            <div class="saveInfor">&nbsp;&nbsp;&nbsp;信息修改</div>
+            <div class="savePic"></div>
+            <div class="saveBgd">
+                <div class="textReminder">请输入想要进行信息修改的学员</div>
+                <input class="studenyName"></input>
+                <button class="confirm" ><a herf="inforSave2" target="_blank">确定</a></button>
+                <div class="menu-button1">
+                    <img src="https://typora--image--image.oss-cn-beijing.aliyuncs.com/Frame%20(1).png">
+                </div>
+                <div class="menu-button2">
+                    <img src="https://typora--image--image.oss-cn-beijing.aliyuncs.com/Frame.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let confirm = document.querySelector(".confirm");
+        confirm.onclick = function () {
+            location.href = "修改页面.html"
+        }
+    </script>
+</body>
+</html>
+
+
