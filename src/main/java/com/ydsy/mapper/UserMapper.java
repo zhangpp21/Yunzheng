@@ -4,6 +4,7 @@ import com.ydsy.pojo.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 public interface UserMapper {
     /**
@@ -44,7 +45,7 @@ public interface UserMapper {
 
     @Select("select * from management.users where user_id = #{userId}")
     User selectByUserId(int userId);
-
-
+    @Update("update management.users  set password = #{newPassword}  WHERE account = #{account};")
+    User updatePassword(String account, String newPassword);
     void updateAll(User user);
 }

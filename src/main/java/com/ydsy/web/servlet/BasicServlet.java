@@ -10,9 +10,7 @@ import java.io.PrintWriter;
 public class BasicServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter writer = response.getWriter();
-        response.setContentType("text/html;charset=utf-8");
-        writer.write("登陆失败");
+
     }
 
     @Override
