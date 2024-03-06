@@ -34,12 +34,6 @@ public class UserService {
         sqlSession.close();
         return user;
     }
-    /**
-     *更新密码
-     * @param account
-     * @param newPassword
-     * @return
-     */
     public boolean updatePassword(String account,String newPassword) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);

@@ -27,6 +27,7 @@ public class RegisterServlet extends HttpServlet {
         // 1. 接收用户数据
         BufferedReader reader = request.getReader();
         String registerUserStr = reader.readLine();
+
         // 封装用户对象
         if (registerUserStr == null) {
             response.setContentType("application/json;charset=utf-8");

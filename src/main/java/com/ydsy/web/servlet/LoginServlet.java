@@ -23,11 +23,14 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 设置响应内容类型为 JSON
         response.setContentType("application/json;charset=utf-8");
+
         // 使用 BufferedReader 读取请求体中的 JSON 数据
         BufferedReader reader = request.getReader();
         String jsonString = reader.readLine();
+
         // 使用 JSON 库解析 JSON 数据为 User 对象
         User user = JSON.parseObject(jsonString, User.class);
+
         // 获取用户名和密码
         String account = user.getAccount();
         String password = user.getPassword();

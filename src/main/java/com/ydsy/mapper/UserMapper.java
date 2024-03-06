@@ -42,6 +42,7 @@ public interface UserMapper {
      */
     @Insert("insert into management.users values(null,#{account},#{password},#{email},null,null,null,null,null,null,null,null)")
     void add(User user);
+
     @Select("select * from management.users where user_id = #{userId}")
     User selectByUserId(int userId);
     @Update("update management.users  set password = #{newPassword}  WHERE account = #{account};")
