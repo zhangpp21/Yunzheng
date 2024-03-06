@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Announcement {
    private int id;
+   private int creatorId;
    private String content;
    private String direction;
    private int period;
@@ -19,6 +20,7 @@ public class Announcement {
 
    public Announcement(int id, String content, String direction, int period, int userId, Date createdAt, int announcementId) {
       this.id = id;
+      this.creatorId = creatorId;
       this.content = content;
       this.direction = direction;
       this.period = period;
@@ -80,6 +82,14 @@ public class Announcement {
 
    public int getAnnouncementId() {
       return announcementId;
+   }
+
+   public int getCreatorId() {
+      return creatorId;
+   }
+
+   public void setCreatorId(int creatorId) {
+      this.creatorId = creatorId;
    }
 
    public void setAnnouncementId(int announcementId) {
