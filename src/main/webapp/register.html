@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/register.js"></script>
+    <link  rel="stylesheet" type="text/css" href="css/register.css">
+</head>
+<body>
+    <div class="version">
+    <div class="page"></div>
+    <div class="logo"></div>
+    <div class="word">
+        <br>
+        <br>
+        welcome to
+        <br>
+        <br>
+        云顶管理系统
+    </div>
+    <input type="text" id="name2"
+    placeholder="   昵称">
+    <input type="password" id="password2"
+    placeholder="   密码">
+    <input type="password" id="password4"
+    placeholder="   请确定密码">
+    <input type="text" id="email2"
+    placeholder="   邮箱">
+    <div class="vcode1">验证码</div>
+    <input type="text" id="vcode2">
+    <div class="vcode3"></div>
+    <button id="btn">(看不清，点击更新一张)</button>
+    <button id="register" onclick="reg()">注册</button>
+    <div id="error"><br><br>验证码错误，请重试！</div>
+    <button id="confirm" onclick="del()">确认</button>
+    </div>
+</body>
+<script>
+    let a = document.getElementById("error");
+    let b = document.getElementById("confirm");
+    a.style.display = "none";
+    b.style.display = "none"; 
+</script>
+</html>

@@ -12,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/UpdateProfileServlet")
+@WebServlet("/updateProfileServlet")
 public class UpdateProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,22 +24,21 @@ public class UpdateProfileServlet extends HttpServlet {
         if (user != null) {
             // 设置响应内容类型为 JSON
             response.setContentType("application/json;charset=utf-8");
-            // 创建一个JSON对象来存储用户信息
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("name", user.getName());
-            jsonObject.put("jobId", user.getJobId());
-            jsonObject.put("awards", user.getAwards());
-            jsonObject.put("personalSignature", user.getPersonalSignature());
-            jsonObject.put("studentId", user.getStudentId());
-            jsonObject.put("majorClass", user.getMajorClass());
-            jsonObject.put("stage", user.getStage());
-            jsonObject.put("directionId", user.getDirectionId());
-            // 将JSON对象转换为字符串并写入响应
-            PrintWriter out = response.getWriter();
-            out.print(jsonObject.toJSONString());
+
+            // 使用 BufferedReader 读取请求体中的 JSON 数据
+            BufferedReader reader = request.getReader();
+            String jsonString = reader.readLine();
+
+            // 使用 JSON 库解析 JSON 数据为 User 对象
+            User updatedUser = JSON.parseObject(jsonString, User.class);
+        if(updatedUser != null){
             // 返回成功的 JSON 响应
             response.getWriter().write(JSON.toJSONString(BasicResultVO.success("完善信息成功")));
-            out.flush();
+        }else{
+            response.setContentType("application/json;charset=utf-8");
+            response.getWriter().write(JSON.toJSONString(BasicResultVO.fail("更新失败，请重试")));
+        }
+
         } else {
             // 处理用户对象为null的情况，可能是session过期或其他错误
             response.setContentType("application/json;charset=utf-8");

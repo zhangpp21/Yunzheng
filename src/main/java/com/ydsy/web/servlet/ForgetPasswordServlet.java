@@ -13,7 +13,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Objects;
 
-@WebServlet("/ForgetPasswordServlet")
+@WebServlet("/forgetPasswordServlet")
 public class ForgetPasswordServlet extends HttpServlet {
     private UserService service = new UserService();
     @Override
