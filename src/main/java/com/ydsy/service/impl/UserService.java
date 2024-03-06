@@ -7,75 +7,56 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 public class UserService {
-
-    SqlSessionFactory factory = SqlSessionFactoryUtils.getSqlSessionFactory();
-
-    /**
-     * 根据用户id获取用户对象
-     *
-     * @param userId
-     * @return
-     */
-    public User selectUserByUserId(int userId) {
-        // 获取SqlSession
-        SqlSession sqlSession = factory.openSession();
-        // UserMapper
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-
-        User user = mapper.selectByUserId(userId);
-
-        sqlSession.close();
-
-        return user;
-    }
+    SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtils.getSqlSessionFactory();
 
     /**
-     * 更新用户信息
-     *
-     * @param user
-     */
-    public void updateAll(User user) {
-        // 获取SqlSession
-        SqlSession sqlSession = factory.openSession();
-        // UserMapper
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-
-        mapper.updateAll(user);
-
-        sqlSession.commit();
-        sqlSession.close();
-    }
-
-    /**
-     * 登陆方法
-     *
+     *登陆方法
      * @param account
      * @param password
      * @return
      */
-    public User login(String account, String password) {
-        SqlSession sqlSession = factory.openSession();
+    public User login(String account,String password){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         User user = mapper.select(account, password);
         sqlSession.close();
         return user;
     }
     /**
+     *查询方法
+     * @param account
+     * @return
+     */
+    public User verifyUser(String account){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.selectByAccount(account);
+        sqlSession.close();
+        return user;
+    }
+    public boolean updatePassword(String account,String newPassword) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.updatePassword(account, newPassword);
+        sqlSession.commit();
+        return user != null;
+    }
+
+    /**
      * 注册方法
-     *
      * @return
      */
 
-    public boolean register(User user) {
+    public boolean register(User user){
         //2. 获取SqlSession
-        SqlSession sqlSession = factory.openSession();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
         //3. 获取UserMapper
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
         //4. 判断用户名是否存在
         User u = mapper.selectByAccount(user.getAccount());
 
-        if (u == null) {
+        if(u == null){
             // 用户名不存在，注册
             mapper.add(user);
             sqlSession.commit();
@@ -83,5 +64,6 @@ public class UserService {
         sqlSession.close();
 
         return u == null;
+
     }
 }
