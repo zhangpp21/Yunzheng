@@ -9,13 +9,7 @@ body {
     background-size: 100%;
     display: flex;
 }
-/* .background {
 
-    width: 1130px;
-    height: 840px;
-    margin: auto; 
-    margin-top: -50px;
-} */
 .container {
     width: 1130px;
     height: 840px;

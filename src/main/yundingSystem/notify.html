@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>通知接收</title>
+    <title>notify</title>
 
-    <link href="通知.css" rel="stylesheet" type="text/css">
+    <link href="./notify.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
         <div class="background">
             
             <div class="container">
@@ -44,12 +45,12 @@
                         <div class="recordHeader">会议记录</div>
                         <div class="record1">
                             <div class="past">
-                                <img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/Vector.png"/>
+                                <img id="past" src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/Vector.png" alt="点击获取历史记录"/>
                             </div>
                         </div>
                         <div class="record2">
                             <div class="next">
-                                <img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/Vector%20(1).png"/>
+                                <img id="next"src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/Vector%20(1).png" alt=""/>
                             </div>
                         </div>
                         <div class="newHeader">会议及任务通知</div>
@@ -79,14 +80,35 @@
 
         
     <script>
-        // var f = function(){
-        //     axios.get('http')
-        //     .then(function(response){
+        
+        //清除原有内容并显示历史数据
+        function displayHistoryData(data) {
+            const container = document.querySelector('.record1');
+            container.innerHTML = '';//清除原有内容
 
-        //         // const historyContainer = 
-        //     })
-        // }
-        var past = document.querySelector('past').addEventListener('click',)
+            data.forEach(item => {
+                const p = document.creatElement('p');
+                p.textContent = item.content;
+                container.appendChild(p);
+            })
+        }
+
+        //获取历史会议记录的函数
+        function f(){
+            axios.get('http')//向后端发起get请求
+                .then(response => {
+                    displayHistoryData(response.data);//用后端返回的数据调用displayHistoryData函数
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        }
+
+        //通过点击图像触发f函数
+        document.getElementById('past').addEventListener('click',f);
+
+        
+
     </script>
 </body>
 </html>
