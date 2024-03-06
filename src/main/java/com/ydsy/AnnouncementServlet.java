@@ -18,10 +18,15 @@ import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.ibatis.io.Resources;
+
 
 @WebServlet("/AnnouncementServlet")
 public class AnnouncementServlet extends HttpServlet {
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
     private SqlSessionFactory sqlSessionFactory;
 
     @Override
