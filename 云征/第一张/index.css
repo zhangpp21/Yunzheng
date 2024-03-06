@@ -1,0 +1,150 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    
+    
+    background: url("https://mjj-bucket.oss-cn-beijing.aliyuncs.com/%E7%99%BB%E5%BD%95%7B%E8%AE%BE%E8%AE%A1%E7%A8%BF%7D.png");
+    background-size:100%;
+    background-repeat: no-repeat;
+    
+    
+}
+.boxmain{
+    display: flex;
+    padding:0;
+    margin:0 auto;
+    width: 1280px;
+    height: 960px;
+    justify-content: center;
+    align-items: center;
+   
+}
+.mainpaper{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 1130px;
+    height: 840px;
+    background: #FFFFFF66;
+    border-radius: 45px;
+
+}
+.choose{
+    display: flex;
+    
+    flex-direction: column;
+   
+    width: 190px;
+    height: 750px;
+    left: 87px;
+    
+
+}
+.chat{
+    display: flex;
+   justify-content: space-between;
+    flex-direction: column;
+    width: 900px;
+    height:750px ;
+   
+
+}
+.buttonbox{
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-around;
+    display: flex;
+    width: 190px;
+    height: 602px;
+    top: 250px;
+}
+.button1{
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    
+
+}
+
+.pictext{
+    width: 190px;height: 53px; border-radius: 8px;border-color: white;
+    display: flex;
+    align-items: center;
+    
+    background: #FFFFFF;
+
+
+}
+.title{
+    display: flex;
+
+}
+.logo{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 261px;
+    height: 348px ;
+
+}
+.none{
+    position: relative;
+    width: 176px;
+    height: 66px;
+    background: #DBD2EB;
+;
+    top: 20px;
+}
+.informationchange{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 45px;
+    width:874px ;
+    height: 602px;
+    background: #F5EACA66;
+    box-shadow: 0px 4px 4px 0px #00000040;
+
+;
+}
+.lable{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.lable1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+.text2{
+height: 29px;
+font-family: Inter;
+font-size: 24px;
+font-weight: 400;
+line-height: 29px;
+letter-spacing: 0em;
+text-align: left;
+white-space:nowrap;
+}
+.buttonbox{
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-around;
+    display: flex;
+    width: 190px;
+    height: 602px;
+    top: 250px;
+}
