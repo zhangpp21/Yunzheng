@@ -1,0 +1,517 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+body{
+    background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/BEBC1A382546CBEEE18BF54D89A5E259.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+button{
+    border: 0px;
+}
+
+.version{
+    width: 1280px;
+    height: 960px;
+    margin: auto;
+    position: relative;
+    /* background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/BEBC1A382546CBEEE18BF54D89A5E259.png"); */
+}
+
+.page{
+    position: absolute;
+    width: 1130px;
+    height: 840px;
+    top: 60px;
+    left: 71px;
+    border-radius: 45px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.animation{
+    position: absolute;
+    width: 1111px;
+    height: 390px;
+    top: 59px;
+    left: 79px;
+    border-radius: 61px;
+    background-color: rgba(238, 238, 238, 0.6);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 4px 7.800000190734863px 0px rgba(0, 0, 0, 0.25);
+}
+
+.cpu{
+    position: absolute;
+    width: 341px;
+    height: 94px;
+    top: 90px;
+    left: 204px;
+    font-size: 80px;
+    line-height: 96.67px;
+    color: rgba(106, 188, 237, 1);
+    background-color: rgba(238, 238, 238, 0.6);
+    z-index: 2;
+}
+
+.ai{
+    position: absolute;
+    width: 86px;
+    top: 108px;
+    left: 626px;
+    font-size: 80px;
+    line-height: 96.82px;
+    color: rgba(106, 188, 237, 1);
+    background-color: rgba(238, 238, 238, 0.6);
+    z-index: 2;
+}
+
+.java{
+    position: absolute;
+    width: 195px;
+    height: 88px;
+    top: 88px;
+    left: 864px;
+    font-size: 80px;
+    line-height: 96.82px;
+    color: rgba(106, 188, 237, 1);
+    background-color: rgba(238, 238, 238, 0.6);
+    z-index: 2;
+}
+
+.Fullstack{
+    position: absolute;
+    width: 166px;
+    height: 88px;
+    top: 271px;
+    left: 133px;
+    font-size: 80px;
+    line-height: 96.82px;
+    color: rgba(106, 188, 237, 1);
+    background-color: rgba(238, 238, 238, 0.6);
+    z-index: 2;
+}
+
+.design{
+    position: absolute;
+    width: 166px;
+    height: 88px;
+    top: 271px;
+    left: 458px;
+    font-size: 80px;
+    line-height: 96.82px;
+    color: rgba(106, 188, 237, 1);
+    background-color: rgba(238, 238, 238, 0.6);
+    z-index: 2;
+}
+
+.Secretary{
+    position: absolute;
+    width: 246px;
+    height: 88px;
+    top: 241px;
+    left: 714px;
+    font-size: 80px;
+    line-height: 96.82px;
+    color: rgba(106, 188, 237, 1);
+    background-color: rgba(238, 238, 238, 0.6);
+    z-index: 2;
+}
+
+.saying{
+    position: absolute;
+    width: 559px;
+    height: 61px;
+    top: 191px;
+    left: 133px;
+    font-size: 40px;
+    line-height: 48.41px;
+    color: rgba(173, 196, 229, 1);
+    animation: move1 10s;
+    text-align:center;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move1 {
+    35%{
+        top: 100px;
+        font-size: 37px;
+        transform: rotateX(-45deg);
+    }
+    50%{
+        top: 100px;
+        font-size: 37px;
+        transform: rotateX(-45deg);
+    }
+    85%{
+        top: 191px;
+        font-size: 40px;
+    }
+    100%{
+        top: 191px;
+        font-size: 40px;
+    }
+}
+.science{
+    position: absolute;
+    width: 456px;
+    height: 52px;
+    top: 179px;
+    left: 701px;
+    left: 701px;
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 0em;
+    text-align: left;
+    -webkit-text-stroke: 1px rgba(0, 104, 225, 1);
+    color: transparent;
+    animation: move4 10s;
+    animation-delay: 0.8s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move4 {
+    35%{
+        top: 80px;
+        transform: rotateX(-35deg);
+    }
+    50%{
+        top: 80px;
+        transform: rotateX(-35deg);
+    }
+    85%{
+        top: 179px;
+    }
+    100%{
+        top: 179px;
+    }
+}
+.the{
+    position: absolute;
+    width: 500px;
+    height: 34px;
+    top: 367px;
+    left: 201px;
+    font-size: 36px;
+    font-weight: 700px;
+    line-height: 43.57px;
+    color: rgba(173, 196, 229, 1);
+    animation: move3 10s;
+    text-align:center;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move3 {
+    35%{
+        top: 266px;
+    }
+    50%{
+        top: 266px;
+    }
+    85%{
+        top: 367px;
+    }
+    100%{
+        top: 367px;
+    }
+}
+
+.yunding{
+    position: absolute;
+    width: 224px;
+    height: 44px;
+    top: 345px;
+    left: 843px;
+    font-weight: 600px;
+    font-size: 48px;
+    line-height: 58.09px;
+    color: rgba(173, 196, 229, 1);
+    animation: move5 10s;
+    animation-delay: 0.8s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move5 {
+    35%{
+        top: 205px;
+    }
+    50%{
+        top: 205px;
+    }
+    85%{
+        top: 345px;
+    }
+    100%{
+        top: 345px;
+    }
+}
+
+.logo1{
+    position: absolute;
+    width: 166.2px;
+    height: 228.16px;
+    top: 200px;
+    left: 292.13px;
+    background-color: skyblue;
+    background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/%E6%A0%87.png");
+    background-size: 100% 100%;
+    animation: move2 10s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move2 {
+    35%{
+        top: 109px;
+    }
+    50%{
+        top: 109px;
+    }
+    85%{
+        top: 200px;
+    }
+    100%{
+        top: 200px;
+    }
+}
+
+.bubble1{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 238px;
+    left: 595px;
+    border: 4px solid rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    animation: bubble1 4s;
+    animation-fill-mode: forwards;
+}
+
+.bubble2{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 238px;
+    left: 595px;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    animation: bubble2 4s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.8s;
+}
+
+.bubble3{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 238px;
+    left: 595px;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    animation: bubble3 4s;
+    animation-fill-mode: forwards;
+    animation-delay: 1.6s;
+}
+
+.bubble4{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 238px;
+    left: 595px;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    animation: bubble4 4s;
+    animation-fill-mode: forwards;
+    animation-delay: 2.4s;
+}
+
+.bubble5{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 238px;
+    left: 595px;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    animation: bubble5 4s;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+}
+
+@keyframes bubble1 {
+    50%{
+        top: 100px;
+        left: 300px;
+        width: 200px;
+        height: 200px;
+        border-color: rgba(255, 255, 255, 1);
+    }
+    100%{
+        top: 50px;
+        width: 230px;
+        height: 230px;
+        border-color: transparent;
+    }
+}
+
+@keyframes bubble5 {
+    50%{
+        top: 200px;
+        left: 200px;
+        width: 180px;
+        height: 180px;
+        border-color: rgba(255, 255, 255, 1);
+    }
+    100%{
+        top: 300px;
+        width: 230px;
+        height: 230px;
+        border-color: transparent;
+    }
+}
+
+@keyframes bubble2 {
+    50%{
+        bottom: 100px;
+        right: 300px;
+        width: 150px;
+        height: 150px;
+        border-color: rgba(255, 255, 255, 1);
+    }
+    100%{
+        top: 50px;
+        width: 230px;
+        height: 230px;
+        border-color: transparent;
+    }
+}
+
+@keyframes bubble3 {
+    50%{
+        top: 300px;
+        right: 300px;
+        width: 150px;
+        height: 150px;
+        border-color: rgba(255, 255, 255, 1);
+    }
+    100%{
+        bottom: 50px;
+        width: 180px;
+        height: 180px;
+        border-color: transparent;
+    }
+}
+
+@keyframes bubble4 {
+    50%{
+        top: 100px;
+        left: 900px;
+        width: 200px;
+        height: 200px;
+        border-color: rgba(255, 255, 255, 1);
+    }
+    100%{
+        top: 50px;
+        left: 900px;
+        width: 230px;
+        height: 230px;
+        border-color: transparent;
+    }
+}
+#management{
+    position: absolute;
+    width: 145px;
+    height: 35px;
+    top: 466px;
+    left: 287px;
+    background-color: #D9D9D9;
+    font-size: 24px;
+    line-height: 29.05px;
+    border-radius: 8px;
+    background-color: rgba(250, 213, 223, 1);
+}
+
+#student{
+    position: absolute;
+    width: 145px;
+    height: 35px;
+    top: 466px;
+    left: 826px;
+    background-color: #D9D9D9;
+    font-size: 24px;
+    line-height: 29.05px;
+    border-radius: 8px;
+    background-color: rgba(204, 229, 244, 1);
+}
+
+.cube1{
+    position: absolute;
+    width: 372px;
+    height: 372px;
+    top: 529px;
+    left: 190px;
+    border-radius: 30px;
+}
+
+.cube2{
+    position: absolute;
+    width: 372px;
+    height: 372px;
+    top: 529px;
+    left: 718px;
+    border-radius: 30px;
+}
+
+.cube3{
+    position: absolute;
+    width: 330px;
+    height: 329.5px;
+    top: 551px;
+    left: 211.5px;
+    border-radius: 30px;
+    transition: all 0.8s;
+    animation: move 1s;
+    background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/3c7d80f91e8baf3da64282d7e977e5f4.jpg");
+    background-size: 330px 330px;
+}
+
+.cube4{
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    top: 551px;
+    left: 739.5px;
+    border-radius: 30px;
+    transition: all 0.8s;
+    animation: move 1s;
+    background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/4d84a94671f21b5e0a5166860a6193b4.jpg");
+    background-size: 330px 330px;
+}
+
+.cube1:hover{
+    cursor: pointer;
+}
+.cube2:hover{
+    cursor: pointer;
+}
+.cube3:hover{
+    cursor: pointer;
+    transform: scale(1.12727,1.12727);
+}
+.cube4:hover{
+    cursor: pointer;
+    transform: scale(1.12727,1.12727);
+}
