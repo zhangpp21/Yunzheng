@@ -1,6 +1,11 @@
 package com.ydsy.mapper;
 
+import com.ydsy.pojo.Meeting;
 
+
+public interface MeetingMapper {
+    void insertMeeting(Meeting meeting);
+=======
 import com.ydsy.pojo.Meeting;
 
 import java.util.List;
@@ -28,4 +33,5 @@ public interface MeetingMapper {
      * @return
      */
     Meeting selectByMeetingId(int meetingId);
+
 }
