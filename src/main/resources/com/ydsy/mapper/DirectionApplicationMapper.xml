@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ydsy.mapper.DirectionApplicationMapper">
+    <resultMap id="DirectionApplicationsResultMap" type="directionApplication">
+        <result column="application_id" property="applicationId"/>
+        <result column="applicant_id" property="applicantId"/>
+        <result column="application_direction" property="applicationDirection"/>
+        <result column="approver_id" property="approverId"/>
+        <result column="approval_status" property="approvalStatus"/>
+        <result column="created_at" property="createdAt"/>
+    </resultMap>
+
+    <insert id="insertNeoDirectionApplication">
+        INSERT INTO direction_applications (applicant_id, application_direction)
+        VALUES (#{applicantId}, #{applicationDirection});
+    </insert>
+
+    <update id="updateApproverIdAndStatus">
+        update direction_applications
+        set approver_id     = #{approverId},
+            approval_status = #{approvalStatus}
+        where application_id = #{applicationId};
+    </update>
+
+    <select id="selectAllByApplicantDirection" resultType="com.ydsy.pojo.DirectionApplication" resultMap="DirectionApplicationsResultMap">
+        select *
+        from direction_applications
+        where approval_status = -1
+          and applicant_id in
+              (select user_id
+               from users
+               where job_id = (select job_id from jobs where job_name = '学员')
+                 and direction_id = (select direction_id from users where direction_id = #{directionId}));
+    </select>
+    <select id="selectByApplicationId" resultType="com.ydsy.pojo.DirectionApplication" resultMap="DirectionApplicationsResultMap">
+        select *
+        from direction_applications
+        where application_id = #{applicationId};
+    </select>
+
+</mapper>

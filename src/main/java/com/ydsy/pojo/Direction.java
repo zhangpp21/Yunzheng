@@ -10,10 +10,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Direction {
-   private int directionId     ;
-   private String directionName   ;
-   private int directionCount  ;
-
+    private int directionId;
+    private String directionName;
+    private int directionCount;
 
 
 }

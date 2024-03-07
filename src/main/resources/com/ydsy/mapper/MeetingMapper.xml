@@ -4,10 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ydsy.mapper.MeetingMapper">
     <resultMap id="meetingsResultMap" type="Meeting">
-        <result column="meeting_id" property = "meetingId"/>
-        <result column="meeting_name" property = "meetingName"/>
-        <result column="creator_id" property = "creatorId"/>
-        <result column="meeting_content" property = "meetingContent"/>
+
+        <result column="meeting_id" property="meetingId"/>
+        <result column="meeting_name" property="meetingName"/>
+        <result column="creator_id" property="creatorId"/>
+        <result column="meeting_content" property="meetingContent"/>
+
     </resultMap>
     <insert id="insertMeeting" parameterType="Meeting">
     INSERT INTO meetings (meeting_name, creator_id, meeting_content)
@@ -16,5 +18,20 @@
 
     <select id="selectAll" resultMap="meetingsResultMap">
         select  * from meetings;
+    <select id="selectAll" resultType="meeting" resultMap="meetingsResultMap">
+        select *
+        from meetings;
+    </select>
+
+    <select id="selectAllMeetingId" resultType="java.lang.Integer" resultMap="meetingsResultMap">
+        select meeting_id
+        from meetings;
+    </select>
+
+    <select id="selectByMeetingId" resultType="com.ydsy.pojo.Meeting" resultMap="meetingsResultMap">
+        select *
+        from meetings
+        where meeting_id = #{meetingId};
+
     </select>
 </mapper>

@@ -10,9 +10,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Job {
-   private int jobId ;
-   private String jobName ;
-   private int jobCount ;
-
+    private int jobId;
+    private String jobName;
+    private int jobCount;
 
 }

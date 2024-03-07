@@ -5,16 +5,16 @@
 <mapper namespace="com.ydsy.mapper.AnnouncementMapper">
     <resultMap id="announcementsResultMap" type="Announcement">
         <result column="announcement_id" property="announcementId"/>
+       <result column="created_at" property="createdAt"/>
+         <result column="user_id" property="userId"/>
+      <result column="period" property="period"/>
+       <result column="direction" property="direction"/>
+       <result column="announcement_content" property="content"/>
         <result column="creator_id" property="creatorId"/>
-        <result column="announcement_content" property="content"/>
-        <result column="created_at" property="createdAt"/>
-        <result column="period" property="period"/>
-        <result column="direction" property="direction"/>
-        <result column="user_id" property="userId"/>
     </resultMap>
     <select id="selectAll" resultMap="announcementsResultMap">
         select *
         from announcements;
     </select>
 
-</mapper>
+
