@@ -23,7 +23,7 @@
                         &nbsp;个人信息</button>
                     </a>
 
-                    <a href="./通知.html">
+                    <a href="./notify.html">
                     <button class="notice"><img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/image%204.png" width="38" height="38"/>
                         &nbsp;&nbsp;&nbsp;&nbsp;通知</button>
                     </a>
@@ -33,7 +33,7 @@
                         &nbsp;研学安排</button>
                     </a>
 
-                    <a href="./签到.html">
+                    <a href="./signIn.html">
                     <button class="sign"><img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/image%205.png" width="38" height="38"/>
                         &nbsp;签到签退</button>
                     </a>
@@ -83,18 +83,18 @@
         
         //清除原有内容并显示历史数据
         function displayHistoryData(data) {
-            const container = document.querySelector('.record1');
-            container.innerHTML = '';//清除原有内容
+            let container = document.querySelector('.record1');
+            container.inner.Text = '';//清除原有内容
 
             data.forEach(item => {
-                const p = document.creatElement('p');
+                
                 p.textContent = item.content;
-                container.appendChild(p);
+                
             })
         }
 
         //获取历史会议记录的函数
-        function f(){
+        function fetchHistoryData(){
             axios.get('http')//向后端发起get请求
                 .then(response => {
                     displayHistoryData(response.data);//用后端返回的数据调用displayHistoryData函数
@@ -104,10 +104,71 @@
                 })
         }
 
-        //通过点击图像触发f函数
-        document.getElementById('past').addEventListener('click',f);
-
         
+
+        //将会议通知内容获取到页面上
+        document.addEventListener('DOMContentLoaded',function(){//页面刷新完毕后调用函数
+            axios.get('http')
+                .then(response => {
+                    let data = response.data;
+
+                    let meeting = document.querySelector('informText');
+
+                    meeting.innerTextL = '';
+
+                    data.forEach(item => {
+
+                        meeting.textContent = item.content;
+                        
+                    })
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        })
+
+        //将学习内容获取到页面上
+        document.addEventListener('DOMContentLoaded',function(){
+            axios.get('http')
+                .then(response => {
+                    let data = response.data;
+
+                    let study = document.querySelector('studyText');
+
+                    task.innerText = '';
+
+                    data.forEach(item => {
+
+                        study.textContent = item.content;
+                    })
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        })
+
+        //将作业任务内容获取到页面上
+        document.addEventListener('DOMContentLoaded',function(){
+            axios.get('http')
+                .then(response => {
+                    let data = response.data;
+
+                    let task = document.querySelector('informText');
+
+                    task.innerHTML = '';
+
+                    data.forEach(item => {
+
+                        task.textContent = item.content;
+                    })
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        })
+
+        //通过点击图像触发fetchHistoryData函数
+        document.getElementById('past').addEventListener('click',fetchHistoryData);
 
     </script>
 </body>

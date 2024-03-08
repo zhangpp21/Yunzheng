@@ -25,40 +25,18 @@
                 <div class="container1">
                     <div class="header">
                         <div class="word">姓名</div>
-                        <div class="word">方向</div>
-                        <div class="word">期数</div>
+                        <div class="word">&nbsp;&nbsp;方向</div>
+                        <div class="word">&nbsp; &nbsp;&nbsp;期数</div>
                         <div class="word">管理员权限</div>
                     </div>
-                    <div class="line1">
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                    </div>
-                    <div class="line2">
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                    </div>
-                    <div class="line3">
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                    </div>
-                    <div class="line4">
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                    </div>
-                    <div class="line5">
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                        <div class="box"></div>
-                    </div>
+                    <form id="authorityGrant">
+                        <input type="text" id="name"/>
+                        <input type="text" id="direction"/>
+                        <input type="text" id="directionCount"/>
+                        <input type="text" id="authority"/>
+
+                    </form>
+                    
                 </div>
                 <div class="next">
                   <img src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/Vector%20(1).png"/>  
@@ -70,15 +48,6 @@
 
 
     <script>
-        var sure = document.querySelector('.sure');
-        var succeed = document.querySelector('.succeed'); 
-        sure.addEventListener('click',function(){
-            succeed.style.display = 'block';
-        })
-        
-        setTimeout(function(){
-            succeed.style.display = 'none';
-        },3000);
 
         //当返回按钮被点击时调用
         function goBack(){
@@ -86,6 +55,105 @@
                 history.back();
             }
         }
+
+        //确定按钮
+        var sure = document.querySelector('.sure');
+        var succeed = document.querySelector('.succeed'); 
+
+        //确定按钮点击后出现授权成功的弹窗
+        sure.addEventListener('click',function(){
+
+            succeed.style.display = 'block';
+        });
+        
+        //弹窗3s后消失
+        setTimeout(function(){
+            succeed.style.display = 'none';
+        },3000);
+
+        
+        //获取元素
+        var name = document.getElementById('name');
+        var direction = document.getElementById('diretcion');
+        var directionCount = document.getElementById('directionCount');
+        var authority = document.getElementById('authority');
+
+        //确认后将数据传送到后端并清空，继续下一次的输入
+        sure.addEventListener('click',function(){
+
+            var nameContent = name.value;  
+            var directionContent = direction.value;  
+            var directionCountContent = directionCount.value;  
+            var authorityContent = authority.value;  
+
+            //将输入的数据传送到后端数据库
+            post(name.value,direction.value,directionCount.value,authority.value);
+            
+            //清空当前输入框的数据，不影响下一次的输入
+            name.value = '';
+            direction.value = '';
+            directionCount.value = '';
+            authority.value = '';
+
+        });
+
+        //发送数据到后端的函数
+        function post(name,direction,directionCount,authority){
+
+            axios({
+                url:"http",
+                method:"POST",
+                data:{
+                    name: "name",  
+                    direction: "direction",  
+                    directionCount: "directionCount",  
+                    authority: "authority"  
+                }
+            })
+            
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.error(err);
+
+            })
+        }
+
+
+        //向上翻查询上一条历史记录
+        function historyData(){
+            var name = document.getElementById('name');
+            name.innerText = '';
+            
+        }
+        //清除原有内容并显示历史数据
+        function displayHistoryData(data) {
+            const container = document.querySelector('.record1');
+            container.innerHTML = '';//清除原有内容
+
+            data.forEach(item => {
+                const p = document.createElement('p');
+                p.textContent = item.content;
+                container.appendChild(p);
+            })
+        }
+
+        //获取历史会议记录的函数
+        function fetchHistoryData(){
+            axios.get('http')//向后端发起get请求
+                .then(response => {
+                    displayHistoryData(response.data);//用后端返回的数据调用displayHistoryData函数
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        }
+
+        //通过点击图像触发fetchHistoryData函数
+        document.getElementById('past').addEventListener('click',fetchHistoryData);
+
+         
     </script>
 </body>
 </html>

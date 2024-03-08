@@ -64,7 +64,7 @@ body {
 .container1 {
     border: 2px black;
     width: 650px;
-    height: 350px;
+    height: 230px;
     position: absolute;
     top: 150px;
     left: 220px;
@@ -72,33 +72,43 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
-.header, .line1, .line2, .line3, .line4, .line5{
+.header{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 
 }
 .header {
-    width: 670px;
+    width: 750px;
 }
 .word {
     font-size: 24px;
 
 }
-.box {
-    width: 90px;
-    height: 35px;
+
+form {
+    width: 710px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+input {
+    width: 140px;
+    height: 50px;
     border-radius: 8px;
     background: #FFFFFF;
+    border: none;
 }
 .past {
     position: absolute;
-    top: 190px;
+    top: 220px;
     left: 950px;
+    cursor: pointer;
 }
 .next {
     position: absolute;
     top: 480px;
     left: 950px;
+    cursor: pointer;
 }
 .sure {
     border: none;

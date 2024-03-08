@@ -101,7 +101,7 @@ a {
     display: flex;
     justify-content: space-between;
 }
-.text {
+.name,.direction,.stage {
     width: 160px;
     height: 40px;
     font-size: 24px;
@@ -118,9 +118,12 @@ a {
 .past {
     position: absolute;
     left: 750px;
+    top: 90px;
+    cursor: pointer;
 }
 .next {
     position: absolute;
     left: 750px;
-    top: 450px;
+    top: 470px;
+    cursor: pointer;
 }

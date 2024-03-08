@@ -39,7 +39,7 @@
             </button>
           </a>
 
-          <a href="./权限授予.html">
+          <a href="./authority.html">
             <button class="power">
               <img
                 src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/image%203.png"
@@ -58,9 +58,9 @@
               />
             </div>
             <div class="header">
-              <div class="text">方向</div>
-              <div class="text">负责人</div>
-              <div class="text">期数</div>
+              <div class="direction">方向</div>
+              <div class="name">负责人</div>
+              <div class="stage">期数</div>
             </div>
             <div class="line1">
               <div class="box"></div>
@@ -93,8 +93,75 @@
     </div>
 
     <script>
-      var content = document.querySelectorAll(".box");
+
+      var direction = document.querySelector('direction');
+      var name = document.querySelector('name');
+      var stage = document.querySelector('stage');
+
+      document.addEventListener('DOMContentLoaded',function(){//页面刷新完毕后调用函数
+
+          axios({
+            url: "http",
+            method:"GET",
+            data:{
+              direction:"direction",
+              name:"name",
+              stage:"stage"
+            }
+          })
+           
+          .then(response => {
+              let data = response.data;
+
+
+              direction.innerTextL = '';
+              name.innerTextL = '';
+              stage.innerTextL = '';
+
+              data.forEach(item => {
+
+                  direction.textContent = item.content;
+                  name.textContent = item.content;
+                  stage.textContent = item.content;
+                  
+              })
+          })
+          .catch(error => {
+              console.error(error);
+          })
+        })
+
       
+
+
+
+
+      
+      //清除原有内容并显示历史数据
+      function displayHistoryData(data) {
+          let container = document.querySelectorAll('all');
+          container.inner.Text = '';//清除原有内容
+
+          data.forEach(item => {
+              
+              p.textContent = item.content;
+              
+          })
+      }
+
+      //获取历史会议记录的函数
+      function fetchHistoryData(){
+          axios.get('http')//向后端发起get请求
+              .then(response => {
+                  displayHistoryData(response.data);//用后端返回的数据调用displayHistoryData函数
+              })
+              .catch(error => {
+                  console.error(error);
+              })
+      }
+
+      //通过点击图像触发fetchHistoryData函数
+      document.getElementById('past').addEventListener('click',fetchHistoryData);
 
     </script>
   </body>
