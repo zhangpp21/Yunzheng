@@ -1,0 +1,215 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/961e7bac45da8dee4ea5ed1cd8bcf43%201.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.container {
+    width: 1130px;
+    height: 840px;
+    border-radius: 45px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background: #FFFFFF66;
+}
+
+.menu {
+    position: absolute;
+    top: 170px;
+    left: 20px;
+    width: 189px;
+    height: 344px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+a {
+    text-decoration: none;
+}
+
+.info, .arrange, .notice, .sign {
+    width: 158px;
+    height: 53px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    background: #FFFFFF;    
+    border: none;
+    box-shadow: 0 4px 4px 0 #00000040;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.info:hover {
+    background-color: #D2D5DF;
+}
+.info:active {
+    transform: scale(0.95);
+}
+
+.arrange:hover {
+    background-color: #D2D5DF;
+}
+.arrange:active {
+    transform: scale(0.95);
+}
+
+.notice:hover {
+    background-color: #D2D5DF;
+}
+.notice:active {
+    transform: scale(0.95);
+}
+
+.sign:hover {
+    background-color: #D2D5DF;
+}
+.sign:active {
+    transform: scale(0.95);
+}
+
+.meeting {
+    width: 874px;
+    height: 602px;
+    border-radius: 45px;
+    background: #FAC8D44D;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    position: absolute;
+    top: 150px;
+    left: 230px;
+
+}
+.container2 {
+    margin: 0 auto;
+    width: 820px;
+    height: 570px;
+    position: relative;
+    top: 20px;
+}
+.recordHeader {
+    width: 264px;
+    height: 54px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background-color: white;
+    border-radius: 8px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.record1 {
+    width: 815px;
+    height: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background-color: white;
+    margin-top: 15px;
+}
+.record2 {
+    width: 815px;
+    height: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background-color: white;
+    margin-top: 15px;
+}
+.past {
+    width: 10px;
+    position: relative;
+    left: 825px;
+    cursor: pointer;
+}
+.next {
+    width: 10px;
+    position: relative;
+    left: 825px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.newHeader {
+    width: 264px;
+    height: 54px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background-color: white;
+    border-radius: 8px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.inform {
+    width: 815px;
+    height: 85px;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+.informText {
+    width: 800px;
+    height: 60px;
+    margin-left: 9px;
+}
+
+.content {
+    width: 815px;
+    height: 85px;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+.contentText {
+    width: 800px;
+    height: 60px;
+    margin-left: 9px;
+}
+
+.task {
+    width: 815px;
+    height: 85px;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+.taskText {
+    width: 800px;
+    height: 60px;
+    margin-left: 9px;
+}
+.informHeader, .contentHeader, .taskHeader {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.informHeader img {
+    position: relative;
+    left: 745px;
+}
+.taskHeader img {
+    position: relative;
+    left: 745px;
+    top: 65px;
+}
