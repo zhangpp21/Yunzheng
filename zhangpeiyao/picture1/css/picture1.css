@@ -1,0 +1,207 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+body{
+    background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/BEBC1A382546CBEEE18BF54D89A5E259.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.version{
+    width: 1280px;
+    height: 960px;
+    margin: auto;
+    /* background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/BEBC1A382546CBEEE18BF54D89A5E259.png"); */
+    position: relative;
+}
+
+.page{
+    position: absolute;
+    width: 1111px;
+    height: 813px;
+    top: 74px;
+    left: 84px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 45px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.logo{
+    position: absolute;
+    width: 312px;
+    height: 416px;
+    top: 100px;
+    left: 152px;
+    background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/%E6%A0%87.png");
+    background-size: 100% 100%;
+}
+
+.word{
+    position: absolute;
+    width: 425px;
+    height: 89px;
+    top: 240px;
+    left: 478px;
+    font-size: 70px;
+    line-height: 77.45px;
+    font-weight: 800;
+    font-family: Inter;
+}
+
+#btn{
+    position: absolute;
+    width: 269px;
+    height: 70px;
+    top: 379px;
+    left: 693px;
+    border-radius: 19px;
+    font-size: 36px;
+    border: 0px;
+    background-color: rgba(164, 196, 233, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.cuboid1{
+    position: absolute;
+    width: 285px;
+    height: 398px;
+    top: 427px;
+    left: 254px;
+    background-color: rgba(230, 230, 230, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    animation: move1 4s ease-out;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/fe043b615adff0b40de85ff748b0d3d7.jpg");
+    background-size: 285px 398px;
+    border-radius: 8px;
+}
+
+.cuboid2{
+    position: absolute;
+    width: 210px;
+    height: 293px;
+    top: 536px;
+    left: 597px;
+    background-color: rgba(230, 230, 230, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    animation: move2 4s ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/5f7402f1e6c5eb759837b052cbb073ba.jpg");
+    background-size: 210px 293px;
+    border-radius: 8px;
+}
+
+.cuboid3{
+    position: absolute;
+    width: 180px;
+    height: 251px;
+    top: 575px;
+    left: 869px;
+    background-color: rgba(230, 230, 230, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    animation: move3 4s ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    background: url("https://zhangpeiyao.oss-cn-beijing.aliyuncs.com/59ff13200b612a31cabacd2980cc7d27.jpg");
+    background-size: 180px 251px;
+    border-radius: 8px;
+}
+
+.blackCuboid1{
+    position: absolute;
+    width: 976px;
+    height: 29px;
+    top: 827px;
+    left: 200px;
+    border-radius: 8px;
+    background-color: black;
+}
+
+.blackCuboid2{
+    position: absolute;
+    width: 29px;
+    height: 700px;
+    top: 165px;
+    left: 1116px;
+    border-radius: 8px;
+    background-color: black;
+} 
+
+    @keyframes move1 {
+    37.5%{
+        width: 210px;
+    height: 293px;
+    top: 536px;
+    left: 597px;
+    background-size: 210px 293px;
+    }
+    62.5%{
+        width: 180px;
+    height: 251px;
+    top: 575px;
+    left: 869px;
+    background-size: 180px 251px;
+    }
+    100%{
+        width: 180px;
+    height: 251px;
+    top: 575px;
+    left: 869px;
+    background-size: 180px 251px;
+    }
+}
+
+@keyframes move2 {
+    37.5%{
+        width: 285px;
+    height: 398px;
+    top: 427px;
+    left: 254px;
+    background-size: 285px 398px;
+    }
+    62.5%{
+        width: 285px;
+    height: 398px;
+    top: 427px;
+    left: 254px;
+    background-size: 285px 398px;
+    }
+}
+
+@keyframes move3 {
+    37.5%{
+        width: 180px;
+    height: 251px;
+    top: 575px;
+    left: 869px;
+    background-size: 180px 251px;
+    }
+    62.5%{
+        width: 210px;
+    height: 293px;
+    top: 536px;
+    left: 597px;
+    background-size: 210px 293px;
+    }
+    100%{
+        width: 285px;
+    height: 398px;
+    top: 427px;
+    left: 254px;
+    background-size: 285px 398px;
+    }
+}
