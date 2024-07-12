@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>headerView</title>
+    <link href="./header.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <div class="background">
+      <div class="container">
+        <div class="logo">
+          <img
+            src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/%E6%9C%AA%E6%A0%87%E9%A2%98-1%204.png"
+          />
+        </div>
+        <div class="menu">
+          <a href="">
+            <button class="info">
+              <img
+                src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/image%202.png"
+                width="38"
+                height="38"
+              />
+              &nbsp;个人信息
+            </button>
+          </a>
+
+          <a href="">
+            <button class="redact">
+              <img
+                src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/image%204.png"
+                width="38"
+                height="38"
+              />
+              &nbsp;信息修改
+            </button>
+          </a>
+
+          <a href="./authority.html">
+            <button class="power">
+              <img
+                src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/image%203.png"
+                width="38"
+                height="38"
+              />
+              &nbsp;权限授予
+            </button>
+          </a>
+        </div>
+        <div class="container1">
+          <div class="container2">
+            <div class="past">
+              <img
+                src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/Vector.png"
+              />
+            </div>
+            <div class="header">
+              <div class="direction">方向</div>
+              <div class="name">负责人</div>
+              <div class="stage">期数</div>
+            </div>
+            <div class="line1">
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+            </div>
+            <div class="line2">
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+            </div>
+            <div class="line3">
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+            </div>
+            <div class="line4">
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+            </div>
+            <div class="next">
+              <img
+                src="https://typora-hhhhry.oss-cn-beijing.aliyuncs.com/Vector%20(1).png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+
+      var direction = document.querySelector('direction');
+      var name = document.querySelector('name');
+      var stage = document.querySelector('stage');
+
+      document.addEventListener('DOMContentLoaded',function(){//页面刷新完毕后调用函数
+
+          axios({
+            url: "http",
+            method:"GET",
+            data:{
+              direction:"direction",
+              name:"name",
+              stage:"stage"
+            }
+          })
+           
+          .then(response => {
+              let data = response.data;
+
+
+              direction.innerTextL = '';
+              name.innerTextL = '';
+              stage.innerTextL = '';
+
+              data.forEach(item => {
+
+                  direction.textContent = item.content;
+                  name.textContent = item.content;
+                  stage.textContent = item.content;
+                  
+              })
+          })
+          .catch(error => {
+              console.error(error);
+          })
+        })
+
+      
+
+
+
+
+      
+      //清除原有内容并显示历史数据
+      function displayHistoryData(data) {
+          let container = document.querySelectorAll('all');
+          container.inner.Text = '';//清除原有内容
+
+          data.forEach(item => {
+              
+              p.textContent = item.content;
+              
+          })
+      }
+
+      //获取历史会议记录的函数
+      function fetchHistoryData(){
+          axios.get('http')//向后端发起get请求
+              .then(response => {
+                  displayHistoryData(response.data);//用后端返回的数据调用displayHistoryData函数
+              })
+              .catch(error => {
+                  console.error(error);
+              })
+      }
+
+      //通过点击图像触发fetchHistoryData函数
+      document.getElementById('past').addEventListener('click',fetchHistoryData);
+
+    </script>
+  </body>
+</html>
