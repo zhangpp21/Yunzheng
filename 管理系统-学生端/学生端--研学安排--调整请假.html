@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>leave</title>
+        <style>
+            *{
+                margin:0 auto;
+                padding:0;
+            }
+            body {
+                background-image: url(https://wind-and-rain.oss-cn-beijing.aliyuncs.com/0e6a86dbba21da297f193b2a9f6d931d.jpg);
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            .one {
+                width:1280px;
+                height:960px;
+                position: relative;
+            }
+            .two {
+                width:1130px;
+                height:840px;
+                background-color: #FFFFFF66;
+                position: absolute;
+                top:60px;
+                left:75px;
+                border-radius: 5%;
+                box-shadow: 0 5px 5px #00000040;
+            }
+            .two1 {
+                display: flex;
+            }
+            .two2 {
+                width:874px;
+                height:602px;
+                padding-left: 0;
+                margin-left: 0;
+                text-align: left;
+                background-color: #ADA4CB4D;
+                position: relative;
+                border-radius: 5%;
+                box-shadow: 0 5px 5px #00000040;
+            }
+            .two3 {
+                width:1130px;
+                height:148px;
+            }
+            img {
+                width:150px;
+                height:110px;
+                position:absolute;
+                top:35px;
+                left:38px;
+                object-fit: cover;
+            }
+            .three {
+                width:100px;
+                height:602px;
+                margin-left: 33px;
+            }
+            .three1 {
+                width:130px;
+                height:50px;
+                background-color: #FFFFFF;
+                text-align: right;
+                font-size: 19px;
+                margin-top: 0;
+                border-radius: 7px 7px;
+                box-shadow: 0 5px 5px #00000040;
+            }
+            .move {
+                width: 5px;
+                height: 10px;
+            }
+            .information1,.plan1,.inform1,.sign1{
+                width:38px;
+                height:38px;
+                position: absolute;
+                left:35px;
+            }
+            .information1 {
+                top:153px;
+            }
+            .plan1 {
+                top:243px;
+            }
+            .inform1 {
+                top:335px;
+            }
+            .sign1 {
+                top:426px;
+            }
+            input {
+                width:250px;
+                height:47px;
+                border: none;
+                border-radius: 7px 7px;
+                background-color: #FFFFFF;
+            }
+            .request {
+                width:636px;
+                height:121px;
+                font-weight:550;
+            }
+            .leave1 {
+                position: absolute;
+                top: 220px;
+                left:625px;
+                font-size: 13px;
+                font-weight:550;
+            }
+            table {
+                text-align: left;
+            }
+            .td1 {
+                width:130px;
+            }
+            tr {
+                height:120px;
+            }
+            .tr1 {
+                position: absolute;
+                top:370px;
+            }
+            .down {
+                height: 10px;
+            }
+            .four {
+                width:230px;
+                height:60px;
+                background-color: #FFFFFF;
+                position: absolute;
+                text-align: center;
+                top: 450px;
+                left:590px;
+                border-radius: 7px 7px;
+                font-weight:500;
+                font-size: 30px;
+            }
+            .success {
+                width:465px;
+                height:88px;
+                background-color: #ADC4E5;
+                position: absolute;
+                top:190px;
+                left:150px;
+                text-align: center;
+                font-size: 30px;
+                display: none;
+                border-radius: 7px 7px;
+            }
+        </style>
+        </head>
+    <body>
+        <div class="one">
+            <div class="two">
+                <div class="two3"><img src="https://wind-and-rain.oss-cn-beijing.aliyuncs.com/f1dc6a7fa182b4d98290192c1298d59c%20(1).png"></div>
+                <div class="two1">
+                    <div class="three">
+                        <div class="three1" id="personalINformation">
+                            <img src="https://wind-and-rain.oss-cn-beijing.aliyuncs.com/210bb500a42aef5bd848e3c1cec08f08.png"
+                                class="information1">
+                            <div class="information2">
+                                <h6 class="move"></h6>个人信息&nbsp;&nbsp;
+                            </div>
+                        </div><br /><br />
+                        <div class="three1" id="plan">
+                            <img src="https://wind-and-rain.oss-cn-beijing.aliyuncs.com/9f23778cdd735db09d5d8fd6776a2b7c.png" class="plan1">
+                            <div class="plan2">
+                                <h6 class="move"></h6>研学安排&nbsp;&nbsp;
+                            </div>
+                        </div><br /><br />
+                        <div class="three1" id="inform">
+                            <img src="https://wind-and-rain.oss-cn-beijing.aliyuncs.com/70812e8ebb37058cba7acac542f15fe3.png" class="inform1">
+                            <div class="inform2">
+                                <h6 class="move"></h6>通知&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div><br /><br />
+                        <div class="three1" id="sign">
+                            <img src="https://wind-and-rain.oss-cn-beijing.aliyuncs.com/4875d05ac90308e7db562475ed9318a3.png" class="sign1">
+                            <div class="sign2">
+                                <h6 class="move"></h6>签到签退&nbsp;&nbsp;
+                            </div>
+                        </div><br /><br />
+                    </div>
+                    <div class="two2">
+                        <table>
+                            <tr>
+                                <td class="td1" >请假时间</td>
+                                <td><input type="text" class="time"></td>
+                            </tr>
+                            <tr>
+                                <td class="td1" valign="top">请假理由</td>
+                                <td><input type="text" class="request"></td>
+                            </tr>
+                            <tr>
+                                <td class="td1">申请人</td>
+                                <td><input type="text" class="body"></td>
+                            </tr>
+                            <tr class="tr1">
+                                <td class="td1">批准情况</td>
+                                <td><input type="text" class="candidate"></td>
+                            </tr>
+                        </table>
+                        <div class="leave1">注 ：请假理由字数在20个字以内</div>
+                        <div class="four">
+                            <h6 class="down"></h6>点击发送
+                        </div>
+                        <div class="success">
+                            <h6>&nbsp;</h6>发送成功
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            let send = document.querySelector(".four");
+            let success = document.querySelector(".success");
+            let personalINformation = document.querySelector("#personalINformation");
+            let plan = document.querySelector("#plan");
+            let request = document.querySelector(".request");
+            let candidate = document.querySelector(".candidate");
+            let time = document.querySelector(".time");
+            let body = document.querySelector(".body");
+            let leave1 = document.querySelector(".leave1")
+            personalINformation.onclick = function (){
+                location.href="学生端--个人信息.html";
+            }
+            plan.onclick = function (){
+                location.href="学生端--研学安排.html"
+            }
+            request.oninput = function (){
+                var maxLength = 20;
+                if(request.value.length > maxLength) {
+                    leave1.innerHTML = "注意：你已超出限定字数";
+                    leave1.style.color = "red";
+                    send.onclick = function () {
+                    }
+                }else{
+                    leave1.innerHTML = "注 ：请假理由字数在20个字以内";
+                    leave1.style.color = "black";
+                    send.onclick = function () {
+                        success.style.display = "block";
+                        time.disabled = "disabled";
+                        request.disabled = "disabled";
+                        body.disabled = "disabled";
+                        candidate.disabled = "disabled";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
