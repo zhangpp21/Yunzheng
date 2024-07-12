@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息查询</title>
+</head>
+<style>
+        * {
+            margin: 0;
+        }
+        body{
+            background :url(https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E7%99%BB%E5%BD%95%7B%E8%AE%BE%E8%AE%A1%E7%A8%BF%7D.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .saveMessageBoard{
+            position: relative;
+            width: 1130px;
+            height: 840px;
+            margin: auto;
+            background-color: rgba(255,255,255,0.4);
+            border-radius: 45px;
+        }
+        .logo{
+            width: 260px;
+            height: 384px;
+            position: absolute;
+            top: 10px;
+            background-repeat: no-repeat;
+            background-image: url(https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E6%9C%AA%E6%A0%87%E9%A2%98-1%204.png);
+        }
+        .inquire{
+            width: 158px;
+            height: 53px;
+            background-color: #fff;
+            border: none;
+            position: absolute;
+            top: 166px;
+            left: 30px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+        .save{
+            width: 158px;
+            height: 53px;
+            background-color: #fff;
+            border: none;
+            position: absolute;
+            top: 254px;
+            left: 30px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+        .noticeDel{
+            width: 158px;
+            height: 53px;
+            background-color: #fff;
+            border: none;
+            position: absolute;
+            top: 342px;
+            left: 30px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+        .stuAssess{
+            width: 158px;
+            height: 53px;
+            background-color: #fff;
+            border: none;
+            position: absolute;
+            top: 430px;
+            left: 30px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+        .permission{
+            width: 158px;
+            height: 53px;
+            background-color: #fff;
+            border: none;
+            position: absolute;
+            top: 518px;
+            left: 30px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+        .studentReg{
+            width: 158px;
+            height: 53px;
+            background-color: #fff;
+            border: none;
+            position: absolute;
+            top: 606px;
+            left: 30px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+        .studentLea{
+            width: 158px;
+            height: 53px;
+            background-color: #fff;
+            border: none;
+            position: absolute;
+            top: 694px;
+            left: 30px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+        .pic{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 10px;
+            left: -2px;
+        }
+        .direction{
+            width: 180px;
+            height: 70px;
+            background-color: #DBD2EB;
+            position: absolute;
+            top: 40px;
+            left: 240px;
+            border: none;
+            text-align: center;
+            line-height: 70px;
+            font-size: 35px;
+        }
+        .inforBgd{
+            width: 874px;
+            height: 600px;
+            background-color: rgba(216,238,240,0.4);
+            border: none;
+            border-radius: 45px;
+            position: absolute;
+            top: 165px;
+            left: 220px;
+            box-shadow: 0px 2px 4px 0px gray;
+        }
+        .menu {
+            display: none;
+            margin-top: 10px;
+        }
+        .menu.active {
+            display: block;
+        }
+        .menu-button1 {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 110px;
+            left: 730px;
+        }
+        .menu-button2 {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 540px;
+            left: 730px;
+        }
+        .content{
+            width: 77px;
+            height: 31px;
+            background-color: white;
+        }
+        table{
+            border-spacing: 50px 20px;
+            padding: 30px;
+            font-size: 20px;
+        }
+</style>
+<body>
+    <div class="saveMessageBgd">
+        <div class="saveMessageBoard">
+            <div class="logo"></div>
+            <button class="inquire">
+                <div class="pic"><img src="https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E5%85%85%E7%94%B5%201.png"></div>
+                &nbsp;&nbsp;&nbsp;&nbsp;学生信息查询
+            </button>
+            <button class="save"><div class="pic"><img src="https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E5%B0%8F%E9%BB%91%E6%9D%BF%201.png"></div>&nbsp;&nbsp;&nbsp;&nbsp;学生信息修改</button>
+            <button class="noticeDel"><div class="pic"><img src="https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E4%BB%A3%E7%A0%81%201.png"></div>&nbsp;&nbsp;&nbsp;&nbsp;通知下发</button>
+            <button class="stuAssess">
+                <div class="pic"><img src="https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E4%B9%A6%E6%9C%AC%201.png">
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;学生评估体系
+            </button>
+            <button class="permission"><div class="pic"><img src="https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E5%AD%A6%E5%A3%AB%E5%B8%BD%201.png"></div>&nbsp;&nbsp;&nbsp;&nbsp;权限授予</button>
+            <button class="studentReg"><div class="pic"><img src="https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E6%95%99%E5%AD%A6%E6%A5%BC%201.png"></div>&nbsp;&nbsp;&nbsp;&nbsp;学员注册管理</button>
+            <button class="studentLea"><div class="pic"><img src="https://typora--image--image.oss-cn-beijing.aliyuncs.com/%E7%AC%94%E7%AD%92%201%201.png"></div>&nbsp;&nbsp;&nbsp;&nbsp;学员请假管理</button>
+            <button class="direction">方向</button>
+            <button class="inforBgd">
+                <div class="menu-button1" id="backwardButton">
+                    <img src="https://typora--image--image.oss-cn-beijing.aliyuncs.com/Frame%20(1).png">
+                </div>
+                <div class="menu-button2" id="forwardButton">
+                    <img src="https://typora--image--image.oss-cn-beijing.aliyuncs.com/Frame.png">
+                </div>
+                 
+                <table class="menu active" id="menu1">
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>期数</th>
+                            <th>职位</th>
+                            <th>专业班级</th>
+                            <th>密码重置</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                            <td>
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                            <td><div class="content"></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="menu" id="menu2">
+                                    <thead>
+                                        <tr>
+                                            <th>姓名</th>
+                                            <th>期数</th>
+                                            <th>职位</th>
+                                            <th>专业班级</th>
+                                            <th>密码重置</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content" ></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                            <td>
+                                                <div class="content"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+            </button>
+        </div>
+    </div>
+    <script>
+        var currentMenu = 1; // 当前显示的菜单编号
+        var menus = document.querySelectorAll('menu'); // 获取所有菜单
+
+        document.getElementById('backwardButton').addEventListener('click', function () {
+            if (currentMenu > 1) {
+                currentMenu--; // 后退一步
+                updateMenus();
+            }
+        });
+
+        document.getElementById('forwardButton').addEventListener('click', function () {
+            if (currentMenu < menus.length) {
+                currentMenu++; // 前进一步
+                updateMenus();
+            }
+        });
+
+        function updateMenus() {
+            // 隐藏所有菜单
+            menus.forEach(function (menu) {
+                menu.classList.remove('active');
+            });
+            // 显示当前菜单
+            menus[currentMenu - 1].classList.add('active');
+        }
+        updateMenus();
+    </script>
+</body>
+</html>
